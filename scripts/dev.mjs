@@ -9,7 +9,7 @@ import mailSyncHandler from '../api/sync-mail.js';
 
 if (!process.argv.includes('--no-build')) await buildSite();
 const root = resolve('dist');
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.avif': 'image/avif', '.gif': 'image/gif', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8' };
 const headers = JSON.parse(await readFile('vercel.json', 'utf8')).headers[0].headers;
 const server = createServer(async (req, res) => {
   for (const { key, value } of headers) res.setHeader(key, value);

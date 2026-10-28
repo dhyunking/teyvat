@@ -1,0 +1,1300 @@
+{
+  "works": [
+    {
+      "dark": true,
+      "brand": "Jade Palace Golf Club",
+      "itemsKr": "쇼핑백 · 선물 박스 · 부직포 파우치 · 행택",
+      "itemsEn": "Shopping bags, gift boxes, non-woven pouches, hang tags",
+      "types": [
+        "bag",
+        "corrugated",
+        "etc"
+      ],
+      "cover": "/assets/web/jade/bag-02.webp",
+      "hero": "/assets/web/jade/box-03.webp",
+      "desc": "제이드팰리스 골프클럽의 쇼핑백, 선물 박스, 부직포 파우치, 행택을 같은 프레임 패턴과 금색 로고로 맞춘 패키지입니다.",
+      "descEn": "Shopping bags, gift boxes, non-woven pouches and hang tags for Jade Palace Golf Club, tied together by one frame pattern and a gold logo.",
+      "chapters": [
+        {
+          "en": "Shopping Bag",
+          "kr": "쇼핑백",
+          "imgs": [
+            {
+              "src": "/assets/web/jade/bag-03.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/jade/bag-02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/bag-01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/bag-05.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/jade/bag-04.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/bag-06.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/bag-07.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/bag-08.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Gift Box",
+          "kr": "선물 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/jade/box-04.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/jade/box-01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/box-02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/box-05.webp",
+              "size": "w"
+            }
+          ]
+        },
+        {
+          "en": "Pouch & Tag",
+          "kr": "파우치 · 행택",
+          "imgs": [
+            {
+              "src": "/assets/web/jade/pouch-04.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/jade/pouch-01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/pouch-02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/jade/pouch-03.webp",
+              "size": "w"
+            }
+          ]
+        }
+      ],
+      "id": "01"
+    },
+    {
+      "dark": true,
+      "brand": "PAN AM",
+      "itemsKr": "쇼핑백 · 골판지 박스 · 테이프 · 틴케이스 · 파우치",
+      "itemsEn": "Shopping bags, corrugated boxes, tape, tin cases, pouches",
+      "types": [
+        "bag",
+        "corrugated",
+        "etc"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsWAdqhOK9/03.webp",
+      "hero": "/assets/web/2023-06-20_CtsWD8LBwZS/01.webp",
+      "desc": "PAN AM의 로고와 블루 컬러를 쇼핑백, 골판지 박스, 포장 테이프, 틴케이스, 비닐 파우치에 적용했습니다.",
+      "descEn": "The PAN AM logo and blue carried across shopping bags, corrugated boxes, packing tape, tin cases and poly pouches.",
+      "chapters": [
+        {
+          "en": "Shopping Bag",
+          "kr": "쇼핑백",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsWAdqhOK9/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWAdqhOK9/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWAdqhOK9/03.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWAdqhOK9/04.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWAdqhOK9/05.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Corrugated Box",
+          "kr": "골판지 박스 · 테이프",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsWD8LBwZS/05.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWD8LBwZS/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWD8LBwZS/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWD8LBwZS/03.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWD8LBwZS/04.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Tin Case & Pouch",
+          "kr": "틴케이스 · 파우치",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/10.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/04.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/05.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/06.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/07.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/08.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWKBkBkEI/09.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "02"
+    },
+    {
+      "dark": true,
+      "brand": "Rare Medium Welldone",
+      "itemsKr": "선물 박스 · 인쇄 박스 · 포장지 · 봉투 · 카드 · 라벨",
+      "itemsEn": "Gift boxes, printed boxes, wrapping paper, envelopes, cards, labels",
+      "types": [
+        "rigid",
+        "corrugated",
+        "print",
+        "etc"
+      ],
+      "cover": "/assets/web/2023-11-01_CzGGZperkrz/01.webp",
+      "hero": "/assets/web/2023-11-01_CzGGZperkrz/02.webp",
+      "desc": "Rare Medium Welldone의 선물 박스, 인쇄 박스, 포장지, 봉투, 카드, 라벨을 붉은 타이포그래피 하나로 묶었습니다.",
+      "descEn": "Gift boxes, printed boxes, wrapping paper, envelopes, cards and labels for Rare Medium Welldone, tied together by one red typographic system.",
+      "chapters": [
+        {
+          "en": "Gift Box",
+          "kr": "선물 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-11-01_CzGGZperkrz/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-01_CzGGZperkrz/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-01_CzGGZperkrz/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWYfCBn46/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWYfCBn46/02.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Printed Box",
+          "kr": "인쇄 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-11-02_CzIYniSP5uS/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-02_CzIYniSP5uS/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-02_CzIYniSP5uS/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-02_CzIYtBqPWje/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-11-02_CzIYtBqPWje/02.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Paper & Label",
+          "kr": "포장지 · 봉투 · 라벨",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-11-01_CzGHUUYryWh/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-11-01_CzGIh6ELerq/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-11-01_CzGIh6ELerq/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-11-02_CzIYpl-vIj0/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-11-02_CzIgzQWvNOO/01.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "03"
+    },
+    {
+      "dark": true,
+      "brand": "Owlr",
+      "itemsKr": "쇼핑백 · 종이 봉투",
+      "itemsEn": "Shopping bags, paper bag",
+      "types": [
+        "bag"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsWOqKB0Um/04.webp",
+      "hero": "/assets/web/2023-06-20_CtsWOqKB0Um/02.webp",
+      "desc": "블루 바탕에 흰 로고를 크게 올린 Owlr의 쇼핑백입니다. 보틀용 세로형을 포함해 여러 크기로 제작했습니다.",
+      "descEn": "Owlr shopping bags with a large white logo on blue, made in several sizes including a tall bottle bag.",
+      "chapters": [
+        {
+          "en": "Shopping Bag",
+          "kr": "쇼핑백",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/04.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/05.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/06.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/07.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Paper Bag",
+          "kr": "종이 봉투",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/08.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWOqKB0Um/09.webp",
+              "size": "c"
+            }
+          ]
+        }
+      ],
+      "id": "04"
+    },
+    {
+      "dark": false,
+      "brand": "Sir.LOIN",
+      "itemsKr": "자석 박스 · 선물 세트 · 카드",
+      "itemsEn": "Magnetic box, gift set, cards",
+      "types": [
+        "magnetic"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsWpUbhQyI/01.webp",
+      "hero": "/assets/web/2023-06-20_CtsWpUbhQyI/03.webp",
+      "desc": "네이비 표지바리 자석 박스와 흰 줄무늬 박스, 카드로 구성한 Sir.LOIN의 선물 세트입니다.",
+      "descEn": "A Sir.LOIN gift set: a navy magnetic box, a white striped box and printed cards.",
+      "chapters": [
+        {
+          "en": "Gift Set",
+          "kr": "선물 세트",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsWpUbhQyI/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWpUbhQyI/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWpUbhQyI/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWpUbhQyI/04.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsWpUbhQyI/05.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "05"
+    },
+    {
+      "dark": false,
+      "brand": "MARBLE NINE",
+      "itemsKr": "서랍형 싸바리 박스",
+      "itemsEn": "Drawer-style rigid box",
+      "types": [
+        "rigid"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsYh5lBtkU/01.webp",
+      "hero": "/assets/web/2023-06-20_CtsYh5lBtkU/01.webp",
+      "desc": "리본 손잡이를 단 2단 서랍형 싸바리 박스입니다. 뚜껑에 금색 로고를 올렸습니다.",
+      "descEn": "A two-drawer rigid box with ribbon pulls and a gold logo on the lid.",
+      "chapters": [],
+      "id": "06"
+    },
+    {
+      "dark": false,
+      "brand": "minTree",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2023-12-01_C0Ta5xhLOTG/01.webp",
+      "hero": "/assets/web/2023-11-03_CzK8HUzryDA/03.webp",
+      "desc": "짙은 녹색 단상자에 제품 정보를 인쇄한 minTree의 패키지입니다.",
+      "descEn": "Deep green folding cartons for minTree with product information printed on every face.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-11-03_CzK8HUzryDA/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-11-03_CzK8CRaLSnR/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-03_CzK8CRaLSnR/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-03_CzK8HUzryDA/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-11-03_CzK8HUzryDA/03.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-12-01_C0Ta5xhLOTG/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-12-01_C0Ta5xhLOTG/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-12-01_C0Ta5xhLOTG/03.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "07"
+    },
+    {
+      "dark": false,
+      "brand": "SIOWA",
+      "itemsKr": "디저트 박스 · 쇼핑백",
+      "itemsEn": "Dessert boxes, shopping bag",
+      "types": [
+        "carton",
+        "bag"
+      ],
+      "cover": "/assets/web/2023-09-13_CxHrg55Bpmd/01.webp",
+      "hero": "/assets/web/2023-09-13_CxHrb13hB2L/03.webp",
+      "desc": "SIOWA(Greeting Dessert)의 디저트 박스와 크라프트 쇼핑백입니다. 흰 박스에는 로고를 형압으로 넣었습니다.",
+      "descEn": "Dessert boxes and a kraft shopping bag for SIOWA Greeting Dessert, with the logo embossed on the white box.",
+      "chapters": [
+        {
+          "en": "Dessert Box",
+          "kr": "디저트 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-09-13_CxHrVSdBbZW/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrVSdBbZW/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrVSdBbZW/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrb13hB2L/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrb13hB2L/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrb13hB2L/03.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Shopping Bag",
+          "kr": "쇼핑백",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-09-13_CxHrg55Bpmd/01.webp",
+              "size": "c"
+            }
+          ]
+        }
+      ],
+      "id": "08"
+    },
+    {
+      "dark": false,
+      "brand": "Knotted — Coffee & Chocolate",
+      "itemsKr": "커피 단상자 · 초콜릿 싸바리 박스",
+      "itemsEn": "Coffee cartons, chocolate rigid boxes",
+      "types": [
+        "carton",
+        "rigid"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsXMwRBPCc/04.webp",
+      "hero": "/assets/web/2023-06-20_CtsXMwRBPCc/01.webp",
+      "desc": "노티드 커피는 단상자로, 초콜릿은 싸바리 상/하 박스로 제작했습니다.",
+      "descEn": "Knotted coffee in folding cartons and chocolate in lid-and-base rigid boxes.",
+      "chapters": [
+        {
+          "en": "Coffee",
+          "kr": "커피 · 단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsXMwRBPCc/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsXMwRBPCc/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsXMwRBPCc/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsXMwRBPCc/04.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsXMwRBPCc/05.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Chocolate",
+          "kr": "초콜릿 · 싸바리",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-29_C2rUYIgr66_/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p9-2.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p9-3.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p9-4.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p9-5.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p9-6.jpg",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "09"
+    },
+    {
+      "dark": false,
+      "brand": "Knotted — Goods",
+      "itemsKr": "창문 박스 · 조립박스 · 틴케이스 · 파우치",
+      "itemsEn": "Window boxes, assembled boxes, tin cases, pouches",
+      "types": [
+        "carton",
+        "assembled",
+        "etc"
+      ],
+      "cover": "/assets/web/2023-06-28_CuBoAz7hybe/01.webp",
+      "hero": "/assets/web/2023-07-18_Cu0ywojhUSG/01.webp",
+      "desc": "인형을 담는 창문 박스, 버스 모양 조립박스, 틴케이스와 원형 케이스, 파우치까지 노티드 굿즈 패키지입니다.",
+      "descEn": "Knotted merchandise packaging: window boxes for plush toys, a bus-shaped assembled box, tin and round cases, and pouches.",
+      "chapters": [
+        {
+          "en": "Window Box",
+          "kr": "창문 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsXQtphdO-/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-28_CuBjnJZBVkU/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-28_CuBjnJZBVkU/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-07-14_CuqUvkrBWlz/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-07-14_CuqUvkrBWlz/02.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Assembled Box",
+          "kr": "조립박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-07-18_Cu0ywojhUSG/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/pdf/p12-2.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p12-3.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p12-5.jpg",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p13-2.jpg",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Tin & Case",
+          "kr": "틴케이스 · 케이스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsXCDohuVw/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-28_CuBoAz7hybe/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-28_CuBoAz7hybe/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-28_CuBoAz7hybe/03.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-07-11_Cuid5I6h-jL/01.webp",
+              "size": "h"
+            }
+          ]
+        },
+        {
+          "en": "Pouch",
+          "kr": "파우치",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-28_CuBjnJZBVkU/03.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-28_CuBjnJZBVkU/04.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "10"
+    },
+    {
+      "dark": false,
+      "brand": "YARNNAKARN × STARBUCKS",
+      "itemsKr": "크라프트 박스 · 내부 칸막이",
+      "itemsEn": "Kraft boxes with inserts",
+      "types": [
+        "corrugated"
+      ],
+      "cover": "/assets/web/2024-01-30_C2t_Puer0HP/01.webp",
+      "hero": "/assets/web/2024-01-30_C2t_TT-rZMB/01.webp",
+      "desc": "얀나칸과 스타벅스 협업 머그·피처를 담는 크라프트 박스입니다. 내부에 제품을 고정하는 칸막이를 넣었습니다.",
+      "descEn": "Kraft boxes for the YARNNAKARN × STARBUCKS mugs and pitchers, with inserts that hold each piece in place.",
+      "chapters": [
+        {
+          "en": "Kraft Box",
+          "kr": "크라프트 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-30_C2t_Puer0HP/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2t_TT-rZMB/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2t_TT-rZMB/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2t_MlGr2PZ/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2t_MlGr2PZ/02.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "11"
+    },
+    {
+      "dark": false,
+      "brand": "MOKITO",
+      "itemsKr": "걸이형 단상자",
+      "itemsEn": "Hanging folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2023-12-04_C0aryvohIEb/01.webp",
+      "hero": "/assets/web/2023-12-04_C0ar2NEhMba/01.webp",
+      "desc": "매장 진열용 걸이 구멍을 낸 MOKITO의 단상자입니다.",
+      "descEn": "Folding cartons for MOKITO with a hang tab for retail display.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-12-04_C0ar2NEhMba/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-12-04_C0ar2NEhMba/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-12-04_C0ars5FBjaB/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-12-04_C0aryvohIEb/01.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "12"
+    },
+    {
+      "dark": false,
+      "brand": "Petit Palais",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding carton",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2024-01-29_C2rQONmrr5p/02.webp",
+      "hero": "/assets/web/2024-01-29_C2rQONmrr5p/03.webp",
+      "desc": "흰 바탕에 파란 일러스트를 전면 인쇄한 Petit Palais의 박스입니다.",
+      "descEn": "A Petit Palais box printed all over with blue illustrations on white.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-29_C2rQONmrr5p/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2024-01-29_C2rQONmrr5p/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2024-01-29_C2rQONmrr5p/03.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "13"
+    },
+    {
+      "dark": false,
+      "brand": "모락관",
+      "itemsKr": "손잡이 조립박스",
+      "itemsEn": "Assembled box with handle",
+      "types": [
+        "assembled"
+      ],
+      "cover": "/assets/web/2024-01-29_C2q7BYOB_vV/01.webp",
+      "hero": "/assets/web/2024-01-29_C2q7BYOB_vV/03.webp",
+      "desc": "손잡이를 접어 올리는 모락관의 포장 박스입니다. 식기 일러스트 패턴을 전면에 인쇄했습니다.",
+      "descEn": "A carry box for Morakgwan with a fold-up handle, printed all over with a tableware pattern.",
+      "chapters": [
+        {
+          "en": "Assembled Box",
+          "kr": "조립박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-29_C2q7BYOB_vV/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-29_C2q7BYOB_vV/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-29_C2q7BYOB_vV/03.webp",
+              "size": "t"
+            }
+          ]
+        }
+      ],
+      "id": "14"
+    },
+    {
+      "dark": false,
+      "brand": "KKOALAPIE",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2024-01-29_C2rH4QeBhg-/01.webp",
+      "hero": "/assets/web/2024-01-29_C2rILCQBx-Q/01.webp",
+      "desc": "일러스트를 전면에 인쇄한 KKOALAPIE의 단상자입니다.",
+      "descEn": "Folding cartons for KKOALAPIE, printed edge to edge with illustration.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-29_C2rH4QeBhg-/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2024-01-29_C2rH4QeBhg-/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2024-01-29_C2rILCQBx-Q/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/pdf/p7-7.jpg",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "15"
+    },
+    {
+      "dark": false,
+      "brand": "선인장 가족 한의원",
+      "itemsKr": "쇼핑백 · 단상자",
+      "itemsEn": "Shopping bag, folding cartons",
+      "types": [
+        "bag",
+        "carton"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsW0zFBgT9/04.webp",
+      "hero": "/assets/web/2023-06-20_CtsW0zFBgT9/01.webp",
+      "desc": "선인장 가족 한의원의 쇼핑백과 단상자입니다. 식물 그림으로 제품을 구분했습니다.",
+      "descEn": "A shopping bag and folding cartons for a Korean medicine clinic, with a different plant drawing for each product.",
+      "chapters": [
+        {
+          "en": "Bag & Carton",
+          "kr": "쇼핑백 · 단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsW0zFBgT9/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsW0zFBgT9/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsW0zFBgT9/03.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsW0zFBgT9/04.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "16"
+    },
+    {
+      "dark": false,
+      "brand": "DANDANG",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2023-06-20_CtsW-H5BcjI/03.webp",
+      "hero": "/assets/web/2023-06-20_CtsW-H5BcjI/01.webp",
+      "desc": "노란 바탕에 브랜드 로고를 배치한 단당의 단상자입니다.",
+      "descEn": "Folding cartons for DANDANG with the brand mark on yellow.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-06-20_CtsW-H5BcjI/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsW-H5BcjI/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-06-20_CtsW-H5BcjI/03.webp",
+              "size": "t"
+            }
+          ]
+        }
+      ],
+      "id": "17"
+    },
+    {
+      "dark": false,
+      "brand": "K—K Market Festival",
+      "itemsKr": "포스터 · 리플렛 · 카드",
+      "itemsEn": "Posters, leaflets, cards",
+      "types": [
+        "print"
+      ],
+      "cover": "/assets/web/2023-09-04_Cww4aq_Bz3X/02.webp",
+      "hero": "/assets/web/2023-09-04_Cww4svSBd_O/01.webp",
+      "desc": "K—K Market Festival의 포스터, 리플렛, 카드 인쇄물입니다.",
+      "descEn": "Posters, leaflets and cards for K—K Market Festival.",
+      "chapters": [
+        {
+          "en": "Print",
+          "kr": "인쇄물",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-09-04_Cww4aq_Bz3X/01.webp",
+              "size": "w"
+            },
+            {
+              "src": "/assets/web/2023-09-04_Cww4aq_Bz3X/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-09-04_Cww4aq_Bz3X/03.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-09-04_Cww4svSBd_O/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2023-09-04_Cww4svSBd_O/02.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-09-04_Cww4xdQB6l2/01.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "18"
+    },
+    {
+      "dark": false,
+      "brand": "Famille Mary",
+      "itemsKr": "슬리브 박스",
+      "itemsEn": "Sleeve box",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2023-09-13_CxHrpunBt_1/01.webp",
+      "hero": "/assets/web/2023-09-13_CxHrpunBt_1/02.webp",
+      "desc": "꿀벌 일러스트와 금박을 올린 Famille Mary의 슬리브 박스입니다.",
+      "descEn": "A sleeve box for Famille Mary with a bee illustration and gold foil.",
+      "chapters": [
+        {
+          "en": "Sleeve Box",
+          "kr": "슬리브 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-09-13_CxHrpunBt_1/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrpunBt_1/02.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "19"
+    },
+    {
+      "dark": false,
+      "brand": "MilliLiter CentiLiter",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2023-09-13_CxHrueChGe5/02.webp",
+      "hero": "/assets/web/2023-09-13_CxHrueChGe5/01.webp",
+      "desc": "흰 바탕에 검은 로고만 올린 MilliLiter CentiLiter의 패키지입니다.",
+      "descEn": "Packaging for MilliLiter CentiLiter: a black logo on plain white.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2023-09-13_CxHrueChGe5/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2023-09-13_CxHrueChGe5/02.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "20"
+    },
+    {
+      "dark": false,
+      "brand": "et",
+      "itemsKr": "봉투 · 파우치형 박스",
+      "itemsEn": "Envelope, pouch box",
+      "types": [
+        "etc"
+      ],
+      "cover": "/assets/web/2024-01-30_C2tK-weBPf5/03.webp",
+      "hero": "/assets/web/2024-01-30_C2tK-weBPf5/01.webp",
+      "desc": "녹색과 흰색 두 가지로 만든 et의 봉투와 파우치형 박스입니다.",
+      "descEn": "An envelope and pouch-style box for et in green and white.",
+      "chapters": [
+        {
+          "en": "Envelope & Pouch",
+          "kr": "봉투 · 파우치",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-30_C2tK-weBPf5/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2tK-weBPf5/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2tK-weBPf5/03.webp",
+              "size": "t"
+            }
+          ]
+        }
+      ],
+      "id": "21"
+    },
+    {
+      "dark": false,
+      "brand": "51오일",
+      "itemsKr": "택배 박스",
+      "itemsEn": "Mailer box",
+      "types": [
+        "corrugated"
+      ],
+      "cover": "/assets/web/2024-01-30_C2tnM9phFRf/01.webp",
+      "hero": "/assets/web/2024-01-30_C2tnM9phFRf/02.webp",
+      "desc": "흑백 사진을 인쇄한 51오일 콜드프레스 참기름·들기름 박스입니다.",
+      "descEn": "A mailer box for 51 Oil cold-pressed sesame and perilla oil, printed with a black-and-white photo.",
+      "chapters": [
+        {
+          "en": "Mailer Box",
+          "kr": "택배 박스",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-30_C2tnM9phFRf/01.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2tnM9phFRf/02.webp",
+              "size": "t"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2tnM9phFRf/03.webp",
+              "size": "t"
+            }
+          ]
+        }
+      ],
+      "id": "22"
+    },
+    {
+      "dark": false,
+      "brand": "keatz",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2025-06-05_DKgEAQxhCFF/01.webp",
+      "hero": "/assets/web/2025-06-05_DKgEAQxhCFF/01.webp",
+      "desc": "맛별로 색을 나눈 keatz Yogurt Bark 단상자입니다.",
+      "descEn": "keatz Yogurt Bark cartons, colour-coded by flavour.",
+      "chapters": [],
+      "id": "23"
+    },
+    {
+      "dark": false,
+      "brand": "formule",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding cartons",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2025-06-05_DKgEP64hTfj/02.webp",
+      "hero": "/assets/web/2025-06-05_DKgEP64hTfj/01.webp",
+      "desc": "패턴을 전면에 인쇄한 formule 단상자입니다. F3은 금색으로 구분했습니다.",
+      "descEn": "formule cartons printed all over with a pattern; F3 is set apart in gold.",
+      "chapters": [
+        {
+          "en": "Folding Carton",
+          "kr": "단상자",
+          "imgs": [
+            {
+              "src": "/assets/web/2025-06-05_DKgEP64hTfj/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2025-06-05_DKgEP64hTfj/02.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "24"
+    },
+    {
+      "dark": false,
+      "brand": "MUWA",
+      "itemsKr": "형압 인쇄물",
+      "itemsEn": "Embossed print",
+      "types": [
+        "print"
+      ],
+      "cover": "/assets/web/2024-01-30_C2tuHoRr2oP/02.webp",
+      "hero": "/assets/web/2024-01-30_C2tuHoRr2oP/01.webp",
+      "desc": "MUWA 로고를 형압으로 표현한 인쇄물입니다.",
+      "descEn": "Printed matter with the MUWA logo in emboss.",
+      "chapters": [
+        {
+          "en": "Print",
+          "kr": "인쇄물",
+          "imgs": [
+            {
+              "src": "/assets/web/2024-01-30_C2tuHoRr2oP/01.webp",
+              "size": "h"
+            },
+            {
+              "src": "/assets/web/2024-01-30_C2tuHoRr2oP/02.webp",
+              "size": "h"
+            }
+          ]
+        }
+      ],
+      "id": "25"
+    },
+    {
+      "dark": false,
+      "brand": "WHAT a CRISP",
+      "itemsKr": "조립박스",
+      "itemsEn": "Assembled box",
+      "types": [
+        "assembled"
+      ],
+      "cover": "/assets/web/2023-06-28_CuBkQhmhi3F/01.webp",
+      "hero": "/assets/pdf/p12-6.jpg",
+      "desc": "흰색과 오렌지색 면을 나눈 WHAT a CRISP의 조립박스입니다.",
+      "descEn": "An assembled box for WHAT a CRISP, split between white and orange panels.",
+      "chapters": [],
+      "id": "26"
+    },
+    {
+      "dark": false,
+      "brand": "GELI BUDDY",
+      "itemsKr": "단상자",
+      "itemsEn": "Folding carton",
+      "types": [
+        "carton"
+      ],
+      "cover": "/assets/web/2023-06-29_CuDtYhzBcIk/01.webp",
+      "hero": "/assets/pdf/p7-9.jpg",
+      "desc": "앞면에 반려견 사진을 넣은 GELI BUDDY의 단상자입니다.",
+      "descEn": "A folding carton for GELI BUDDY with a dog photo on the front.",
+      "chapters": [],
+      "id": "27"
+    },
+    {
+      "dark": false,
+      "brand": "BORED & HUNGRY",
+      "itemsKr": "조립박스",
+      "itemsEn": "Assembled box",
+      "types": [
+        "assembled"
+      ],
+      "cover": "/assets/pdf/p15-6.jpg",
+      "hero": "/assets/pdf/p12-7.jpg",
+      "desc": "연두색 바탕의 BORED & HUNGRY 조립박스입니다.",
+      "descEn": "An assembled box for BORED & HUNGRY in lime green.",
+      "chapters": [],
+      "id": "28"
+    },
+    {
+      "dark": false,
+      "brand": "Organature",
+      "itemsKr": "조립박스",
+      "itemsEn": "Assembled box",
+      "types": [
+        "assembled"
+      ],
+      "cover": "/assets/pdf/p8-8.jpg",
+      "hero": "/assets/pdf/p13-4.jpg",
+      "desc": "짙은 녹색 바탕의 Organature 조립박스입니다.",
+      "descEn": "An assembled box for Organature in deep green.",
+      "chapters": [],
+      "id": "29"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, cp, rm, mkdtemp } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, cp, rm, mkdtemp, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { pathToFileURL } from 'node:url';
@@ -13,6 +13,10 @@ export async function buildSite() {
   const origin = new URL(process.env.SITE_URL || 'https://teyvat.kr').origin;
   const indexable = process.env.VERCEL_ENV !== 'preview';
   const out = 'dist';
+  const images = new Set(WORKS.flatMap(work => [work.cover, work.hero, ...work.chapters.flatMap(chapter => chapter.imgs.map(([src]) => src))]));
+  for (const image of images) {
+    if (!(await stat('.' + image).catch(() => null))?.isFile()) throw new Error(`작업물 이미지를 찾을 수 없습니다: ${image}`);
+  }
   await rm(out, { recursive: true, force: true });
   await mkdir(join(out, 'assets'), { recursive: true });
   await cp('assets', join(out, 'assets'), { recursive: true });

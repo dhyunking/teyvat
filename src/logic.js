@@ -255,6 +255,8 @@ export default class Component extends DCLogic {
       isServices: s.page === 'services', isAbout: s.page === 'about', isContact: s.page === 'contact',
       isWorks: s.page === 'works' || s.page === 'detail',
       go, open,
+      leadWorkHref: WORKS.some(w => w.id === '01') ? routeFor('detail', '01') : '/works',
+      leadWorkOpen: open.w01 || go.works,
       hRef: this.hRef, procRef: this.procRef, transRef: this.transRef,
       procCols: (s.vw || 1200) < 760 ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.15fr)',
       procRows: (s.vw || 1200) < 760 ? 'minmax(0,1fr) auto' : 'auto',
@@ -264,11 +266,11 @@ export default class Component extends DCLogic {
       pMove: e => { const d = this.dragging; if (!d) return; this.rot = this.rot || { z: 0, x: 0 }; this.rot.z += (e.clientX - d.x) * 0.45; this.rot.x = clamp(this.rot.x - (e.clientY - d.y) * 0.3, -40, 30); d.x = e.clientX; d.y = e.clientY; },
       pUp: () => { if (this.dragging) { this.dragging = null; this.setState({ boxGrab: false }); } },
       finishes: [
-        ['금박', 'Hot Foil', J('bag-03'), 'Jade Palace Golf Club', 0],
-        ['형압', 'Emboss', J('bag-08'), 'Jade Palace Golf Club', 0],
-        ['로고 형압', 'Logo Emboss', U(57, 1), 'MUWA', 24],
-        ['골판지 인쇄', 'Corrugated Print', U(7, 5), 'PAN AM', 1],
-      ].map(([kr, en, img, src, wi], i) => ({ kr, en, img, src: src.toUpperCase(), no: 'F—' + String(i + 1).padStart(2, '0'), open: () => this.nav('detail', { workId: WORKS[wi].id }) })),
+        ['금박', 'Hot Foil', J('bag-03'), 'Jade Palace Golf Club', '01'],
+        ['형압', 'Emboss', J('bag-08'), 'Jade Palace Golf Club', '01'],
+        ['로고 형압', 'Logo Emboss', U(57, 1), 'MUWA', '25'],
+        ['골판지 인쇄', 'Corrugated Print', U(7, 5), 'PAN AM', '02'],
+      ].map(([kr, en, img, src, workId], i) => ({ kr, en, img, src: src.toUpperCase(), no: 'F—' + String(i + 1).padStart(2, '0'), open: () => WORKS.some(w => w.id === workId) ? this.nav('detail', { workId }) : this.nav('works') })),
       faqs: [
         ['최소 주문 수량이 있나요?', '품목과 인쇄 방식에 따라 달라요. 원하시는 수량을 알려주시면 가능한 방법과 단가를 함께 안내해 드립니다.'],
         ['제작 기간은 얼마나 걸리나요?', '사양이 정해진 뒤 품목, 수량, 후가공에 따라 달라져요. 희망 납기를 알려주시면 일정에 맞출 수 있는지 먼저 확인해 드립니다.'],
@@ -279,7 +281,7 @@ export default class Component extends DCLogic {
       isNarrow: (s.vw || 1200) < 760, isWide: (s.vw || 1200) >= 760,
       menuOpen: !!s.menuOpen && (s.vw || 1200) < 760,
       openMenu: () => this.setState({ menuOpen: true }), closeMenu: () => this.setState({ menuOpen: false }),
-      featured: [[0, J('bag-02')], [1, U(6, 3)], [2, U(33, 1)], [3, U(9, 4)], [4, U(11, 1)], [5, U(15, 1)], [6, U(42, 1)]].map(([i, img], k) => { const w = allWorks[i]; return {
+      featured: allWorks.slice(0, 7).map((w, k) => { const img = w.cover; return {
         href: w.href, id: w.id, n: w.id, brand: w.brand, itemsKr: w.itemsKr, img, open: w.open, card: w.dark ? '#141413' : '#E4DFD5', yOff: k % 2 ? '8vh' : '-6vh',
       }; }),
       isTypeHero: (this.props.heroStyle || 'type') === 'type', isLogoHero: this.props.heroStyle === 'logo',

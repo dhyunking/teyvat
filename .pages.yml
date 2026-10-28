@@ -1,0 +1,132 @@
+media:
+  input: assets
+  output: /assets
+  categories: [image]
+  extensions: [jpg, jpeg, png, webp, avif, gif]
+  rename: random
+
+content:
+  - name: works
+    label: 작업물 관리
+    type: file
+    path: content/works.json
+    format: json
+    fields:
+      - name: works
+        label: 작업물
+        description: 위에서부터 홈페이지에 표시됩니다. 항목을 끌어서 순서를 바꿀 수 있으며, 앞의 7개는 메인 페이지에도 표시됩니다.
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{brand} · {id}"
+        fields:
+          - name: id
+            label: 작업 번호
+            type: string
+            required: true
+            description: 새 작업물은 사용하지 않은 번호를 입력하세요. 현재 마지막 번호는 29이므로 다음은 30입니다. 기존 번호는 순서를 바꿔도 유지하세요.
+            pattern:
+              regex: "^(?!0+$)[0-9]{2,}$"
+              message: 두 자리 이상의 숫자로 입력하세요. 예시 30, 31
+          - name: brand
+            label: 브랜드명
+            type: string
+            required: true
+          - name: itemsKr
+            label: 제작 품목
+            type: string
+            required: true
+            description: "예시: 쇼핑백 · 선물 박스 · 카드"
+          - name: itemsEn
+            label: 제작 품목 (영문)
+            type: string
+            description: 비워 두면 국문을 사용합니다.
+          - name: types
+            label: 제작 종류
+            type: select
+            required: true
+            options:
+              multiple: true
+              min: 1
+              values:
+                - {name: bag, label: 쇼핑백}
+                - {name: carton, label: 단상자}
+                - {name: rigid, label: 싸바리}
+                - {name: magnetic, label: 표지바리}
+                - {name: assembled, label: 조립박스}
+                - {name: corrugated, label: 골판지 박스}
+                - {name: print, label: 인쇄물}
+                - {name: etc, label: 기타}
+          - name: cover
+            label: 대표 이미지
+            type: image
+            required: true
+            description: 작업 목록과 메인 페이지에 표시됩니다. 이미지 업로드 폴더는 assets/works를 권장합니다.
+            options:
+              path: assets/works
+          - name: hero
+            label: 상세 페이지 상단 이미지
+            type: image
+            description: 비워 두면 대표 이미지를 사용합니다.
+            options:
+              path: assets/works
+          - name: dark
+            label: 어두운 배경 사용
+            type: boolean
+            default: false
+          - name: desc
+            label: 작업 설명
+            type: text
+            required: true
+            description: 상세 페이지와 검색 결과 설명에 사용됩니다.
+          - name: descEn
+            label: 작업 설명 (영문)
+            type: text
+            description: 비워 두면 국문을 사용합니다.
+          - name: chapters
+            label: 상세 섹션
+            description: 품목별로 섹션을 추가하고 사진을 배치하세요. 섹션 없이 상단 이미지와 설명만으로도 등록할 수 있습니다.
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{kr}"
+            fields:
+              - name: kr
+                label: 섹션 제목
+                type: string
+                required: true
+              - name: en
+                label: 섹션 제목 (영문)
+                type: string
+              - name: imgs
+                label: 이미지
+                type: object
+                list:
+                  min: 1
+                  collapsible:
+                    collapsed: false
+                    summary: "사진 {index}"
+                fields:
+                  - name: src
+                    label: 사진
+                    type: image
+                    required: true
+                    options:
+                      path: assets/works
+                  - name: size
+                    label: 배치
+                    type: select
+                    default: h
+                    options:
+                      values:
+                        - {name: w, label: 가로 전체 폭}
+                        - {name: h, label: 정사각형 2열}
+                        - {name: t, label: 세로형 3열}
+                        - {name: c, label: 가운데 큰 정사각형}
+
+settings:
+  commit:
+    identity: app
