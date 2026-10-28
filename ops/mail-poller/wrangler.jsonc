@@ -1,0 +1,15 @@
+{
+  "name": "teyvat-mail-poller",
+  "main": "worker.js",
+  "account_id": "ec64b459810374eaf103a774b575677d",
+  "compatibility_date": "2026-10-23",
+  "workers_dev": false,
+  "preview_urls": false,
+  "triggers": { "crons": ["* * * * *"] },
+  "kv_namespaces": [ { "binding": "MAIL_POLL_STATE", "id": "8116c605b6f24436a39184a12804b93b" } ],
+  "vars": {
+    "SYNC_URL": "https://teyvat.kr/api/sync-mail",
+    "MAILBOX": "inquiry@teyvat.kr"
+  },
+  "observability": { "enabled": true }
+}

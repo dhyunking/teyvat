@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.vercel/
+.env*
+!.env.example
+test-results/
+playwright-report/
+.DS_Store
+.wrangler/
+.thumbnail
+# Original design exports and source uploads are retained locally.
+uploads/
+TEYVAT Homepage v2.dc.html
+support.js
+image-slot.js
+.vercel

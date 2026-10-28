@@ -1,0 +1,17 @@
+{
+  "firewallEnabled": true,
+  "rules": [
+    {
+      "name": "TEYVAT inquiry rate limit",
+      "description": "Limit contact submissions to 10 requests per IP in 10 minutes.",
+      "active": true,
+      "conditionGroup": [{ "conditions": [
+        { "type": "path", "op": "eq", "value": "/api/contact" },
+        { "type": "method", "op": "eq", "value": "POST" }
+      ] }],
+      "action": { "mitigate": { "action": "rate_limit", "rateLimit": {
+        "algo": "fixed_window", "window": 600, "limit": 10, "keys": ["ip"], "action": "rate_limit"
+      } } }
+    }
+  ]
+}

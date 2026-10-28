@@ -1,0 +1,13 @@
+node_modules
+dist
+.env*
+uploads
+tests
+test-results
+playwright-report
+TEYVAT Homepage v2.dc.html
+support.js
+image-slot.js
+.thumbnail
+README.md
+ops

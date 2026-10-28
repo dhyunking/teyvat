@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# AI 검색·답변 엔진 허용
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://teyvat.kr/sitemap.xml

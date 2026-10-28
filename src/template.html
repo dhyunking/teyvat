@@ -1,0 +1,638 @@
+<sc-if value="{{ isHome }}"><h1 class="sr-only">테바디엔피 — 패키지 디자인 · 인쇄 · 제작</h1></sc-if>
+<sc-if value="{{ grain }}" hint-placeholder-val="{{ true }}">
+<svg style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:70;opacity:.12;mix-blend-mode:multiply"><filter id="paperGrain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#paperGrain)"></rect></svg>
+</sc-if>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px clamp(20px,3vw,44px);color:#fff;mix-blend-mode:difference;pointer-events:none">
+  <a href="/" onClick="{{ go.home }}" style="pointer-events:auto;background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center;gap:12px">
+    <svg viewBox="0 0 112 34" style="height:17px;width:auto;display:block;fill:currentColor"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg>
+    <span style="font-family:Archivo,sans-serif;font-weight:800;font-size:16px;letter-spacing:.02em;font-variation-settings:'wdth' 125">TEYVAT</span>
+    <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}"><span style="font-size:12px;opacity:.75">테바디엔피</span></sc-if>
+  </a>
+  <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ openMenu }}" style="pointer-events:auto;background:none;border:0;padding:10px 0 10px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;font-family:Archivo,sans-serif;font-weight:600;font-size:15px"><span>Menu</span><span style="display:flex;flex-direction:column;gap:5px"><span style="width:22px;height:2px;background:currentColor"></span><span style="width:22px;height:2px;background:currentColor"></span></span></button>
+  </sc-if>
+  <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}">
+  <nav style="pointer-events:auto;display:flex;gap:clamp(14px,2.4vw,36px);align-items:baseline">
+    <a href="/works" onClick="{{ go.works }}" style="background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:baseline;gap:6px;font-size:14px" style-hover="opacity:.6"><sc-if value="{{ isWorks }}" hint-placeholder-val="{{ false }}"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;transform:translateY(-2px)"></span></sc-if><span style="font-family:Archivo,sans-serif;font-weight:600">Works</span><span style="font-size:12px;opacity:.75">작업</span></a>
+    <a href="/services" onClick="{{ go.services }}" style="background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:baseline;gap:6px;font-size:14px" style-hover="opacity:.6"><sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;transform:translateY(-2px)"></span></sc-if><span style="font-family:Archivo,sans-serif;font-weight:600">Services</span><span style="font-size:12px;opacity:.75">서비스</span></a>
+    <a href="/about" onClick="{{ go.about }}" style="background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:baseline;gap:6px;font-size:14px" style-hover="opacity:.6"><sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;transform:translateY(-2px)"></span></sc-if><span style="font-family:Archivo,sans-serif;font-weight:600">About</span><span style="font-size:12px;opacity:.75">소개</span></a>
+    <a href="/contact" onClick="{{ go.contact }}" style="background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:baseline;gap:6px;font-size:14px" style-hover="opacity:.6"><sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;transform:translateY(-2px)"></span></sc-if><span style="font-family:Archivo,sans-serif;font-weight:600">Contact</span><span style="font-size:12px;opacity:.75">문의</span></a>
+  </nav>
+  </sc-if>
+</header>
+
+<div ref="{{ transRef }}" aria-hidden="true" style="position:fixed;inset:0;z-index:95;background:#D6421F;display:flex;align-items:center;justify-content:center;visibility:hidden;transform:translateY(100%);pointer-events:none;will-change:transform">
+  <svg viewBox="0 0 112 34" style="width:min(42vw,340px);height:auto;display:block;fill:#EEEAE2;overflow:hidden">
+    <g data-tg="1" style="transform-box:fill-box;transform:translateY(120%)"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path></g>
+    <g data-tg="1" style="transform-box:fill-box;transform:translateY(120%)"><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path></g>
+    <g data-tg="1" style="transform-box:fill-box;transform:translateY(120%)"><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></g>
+  </svg>
+  <div data-tlabel="1" style="position:absolute;left:clamp(20px,3vw,44px);bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#EEEAE2"></div>
+</div>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;background:#1A1915;color:#EEEAE2;display:flex;flex-direction:column;padding:20px 20px 28px;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <svg viewBox="0 0 112 34" style="height:17px;width:auto;display:block;fill:#EEEAE2"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg>
+      <button onClick="{{ closeMenu }}" style="background:none;border:0;padding:10px 0 10px 16px;cursor:pointer;font-family:Archivo,sans-serif;font-weight:600;font-size:15px;color:#EEEAE2;display:flex;gap:10px;align-items:center"><span>Close</span><span style="font-size:22px;line-height:1">×</span></button>
+    </div>
+    <nav style="margin-top:auto;display:flex;flex-direction:column;border-top:1px solid rgba(238,234,226,.2)">
+      <a href="/" onClick="{{ go.home }}" style="background:none;border:0;border-bottom:1px solid rgba(238,234,226,.2);padding:16px 0;cursor:pointer;color:#EEEAE2;display:flex;justify-content:space-between;align-items:baseline" style-active="color:#D6421F"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1">Home</span><span style="font-size:14px;color:#A8A399">홈</span></a>
+      <a href="/works" onClick="{{ go.works }}" style="background:none;border:0;border-bottom:1px solid rgba(238,234,226,.2);padding:16px 0;cursor:pointer;color:#EEEAE2;display:flex;justify-content:space-between;align-items:baseline" style-active="color:#D6421F"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1">Works</span><span style="font-size:14px;color:#A8A399">작업</span></a>
+      <a href="/services" onClick="{{ go.services }}" style="background:none;border:0;border-bottom:1px solid rgba(238,234,226,.2);padding:16px 0;cursor:pointer;color:#EEEAE2;display:flex;justify-content:space-between;align-items:baseline" style-active="color:#D6421F"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1">Services</span><span style="font-size:14px;color:#A8A399">서비스</span></a>
+      <a href="/about" onClick="{{ go.about }}" style="background:none;border:0;border-bottom:1px solid rgba(238,234,226,.2);padding:16px 0;cursor:pointer;color:#EEEAE2;display:flex;justify-content:space-between;align-items:baseline" style-active="color:#D6421F"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1">About</span><span style="font-size:14px;color:#A8A399">소개</span></a>
+      <a href="/contact" onClick="{{ go.contact }}" style="background:none;border:0;border-bottom:1px solid rgba(238,234,226,.2);padding:16px 0;cursor:pointer;color:#EEEAE2;display:flex;justify-content:space-between;align-items:baseline" style-active="color:#D6421F"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1">Contact</span><span style="font-size:14px;color:#A8A399">문의</span></a>
+    </nav>
+    <div style="margin-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#A8A399"><a href="mailto:inquiry@teyvat.kr">inquiry@teyvat.kr</a><a href="https://www.instagram.com/teyvat.kr/" target="_blank" rel="noopener">@teyvat.kr</a></div>
+  </div>
+</sc-if>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <section ref="{{ heroRef }}" data-screen-label="Home" style="position:relative;height:300vh">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+      <sc-if value="{{ isTypeHero }}" hint-placeholder-val="{{ true }}">
+      <div ref="{{ winRef }}" style="position:absolute;left:50%;top:50%;width:17vw;height:60vh;transform:translate(-50%,-50%)">
+        <div style="position:absolute;inset:0;overflow:hidden;background:#141413">
+          <img src="/assets/web/jade/bag-03.webp" alt="Jade Palace Golf Club 쇼핑백 금박 디테일" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+        <span style="position:absolute;top:0;left:-26px;width:16px;height:1px;background:#1A1915"></span>
+        <span style="position:absolute;top:-26px;left:0;width:1px;height:16px;background:#1A1915"></span>
+        <span style="position:absolute;top:0;right:-26px;width:16px;height:1px;background:#1A1915"></span>
+        <span style="position:absolute;top:-26px;right:0;width:1px;height:16px;background:#1A1915"></span>
+        <span style="position:absolute;bottom:0;left:-26px;width:16px;height:1px;background:#1A1915"></span>
+        <span style="position:absolute;bottom:-26px;left:0;width:1px;height:16px;background:#1A1915"></span>
+        <span style="position:absolute;bottom:0;right:-26px;width:16px;height:1px;background:#1A1915"></span>
+        <span style="position:absolute;bottom:-26px;right:0;width:1px;height:16px;background:#1A1915"></span>
+        <span style="position:absolute;top:-44px;left:50%;width:16px;height:16px;margin-left:-8px;border:1px solid #1A1915;border-radius:50%;box-sizing:border-box"></span>
+        <span style="position:absolute;top:-48px;left:50%;width:1px;height:24px;background:#1A1915"></span>
+        <span style="position:absolute;top:-36px;left:50%;width:24px;height:1px;margin-left:-12px;background:#1A1915"></span>
+      </div>
+      <div ref="{{ leftRef }}" style="position:absolute;right:50%;top:50%;display:flex;transform:translate(-10vw,-50%);font-family:Archivo,sans-serif;font-weight:800;font-size:15vw;line-height:1;letter-spacing:-.01em;font-variation-settings:'wdth' 125;color:#1A1915;pointer-events:none;will-change:transform">
+        <span style="display:block;overflow:hidden"><span data-l="0" style="display:block">T</span></span>
+        <span style="display:block;overflow:hidden"><span data-l="1" style="display:block">E</span></span>
+        <span style="display:block;overflow:hidden"><span data-l="2" style="display:block">Y</span></span>
+      </div>
+      <div ref="{{ rightRef }}" style="position:absolute;left:50%;top:50%;display:flex;transform:translate(10vw,-50%);font-family:Archivo,sans-serif;font-weight:800;font-size:15vw;line-height:1;letter-spacing:-.01em;font-variation-settings:'wdth' 125;color:#1A1915;pointer-events:none;will-change:transform">
+        <span style="display:block;overflow:hidden"><span data-l="3" style="display:block">V</span></span>
+        <span style="display:block;overflow:hidden"><span data-l="4" style="display:block">A</span></span>
+        <span style="display:block;overflow:hidden"><span data-l="5" style="display:block">T</span></span>
+      </div>
+      </sc-if>
+      <sc-if value="{{ isLogoHero }}" hint-placeholder-val="{{ false }}">
+      <svg ref="{{ svgRef }}" style="position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0">
+        <defs>
+          <clipPath id="tvGlyphs"><g ref="{{ clipRef }}"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></g></clipPath>
+          <clipPath id="tvBox"><rect x="-2" y="0" width="116" height="34.4"></rect></clipPath>
+        </defs>
+        <image href="assets/web/jade/bag-03.webp" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="clip-path:url(#tvGlyphs)"></image>
+        <g ref="{{ inkRef }}">
+          <g style="clip-path:url(#tvBox)">
+            <g data-g="0" style="fill:#1A1915"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path></g>
+            <g data-g="1" style="fill:#1A1915"><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path></g>
+            <g data-g="2" style="fill:#1A1915"><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></g>
+          </g>
+        </g>
+      </svg>
+      <img ref="{{ fullRef }}" src="/assets/web/jade/bag-03.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none">
+      </sc-if>
+
+      <div ref="{{ metaRef }}" style="position:absolute;left:0;right:0;bottom:0;padding:0 clamp(20px,3vw,44px) 24px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;line-height:1.7;opacity:0">
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:clamp(17px,1.5vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.4">손에 닿는 순간까지 디자인합니다.</span><span>DESIGN ⟷ PRINTING</span></div>
+        <div style="text-align:center">SCROLL ↓</div>
+        <div style="text-align:right">TEYVAT D&amp;P<br><a href="https://www.instagram.com/teyvat.kr/" target="_blank" rel="noopener">@teyvat.kr</a></div>
+      </div>
+
+      <div ref="{{ capRef }}" style="position:absolute;left:clamp(20px,3vw,44px);bottom:28px;opacity:0;display:flex;flex-wrap:wrap;align-items:center;gap:20px;padding:18px 20px;background:#EEEAE2;pointer-events:none">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">FEATURED — 01</span>
+          <span style="font-family:Archivo,sans-serif;font-size:20px;font-weight:700;letter-spacing:-.01em">Jade Palace Golf Club</span>
+          <span style="font-size:14px;color:#4D4A43">쇼핑백 · 선물 박스 · 부직포 파우치 · 행택</span>
+        </div>
+        <a href="/works/01-jade-palace-golf-club" onClick="{{ open.w01 }}" style="background:#1A1915;color:#EEEAE2;border:0;padding:12px 16px;cursor:pointer;font-size:14px;display:flex;gap:8px" style-hover="background:#D6421F">작업 보기 <span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(96px,16vh,180px) clamp(20px,3vw,44px) clamp(80px,12vh,140px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px)">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A;padding-top:12px">(STUDIO)</div>
+    <div data-reveal="1" style="display:flex;flex-direction:column;gap:28px">
+      <p style="margin:0;font-size:clamp(26px,3.6vw,54px);font-weight:500;line-height:1.35;letter-spacing:-.03em;max-width:20em;text-wrap:pretty">종이 한 장이 브랜드의 첫인상이 되도록. 기획부터 인쇄, 패키지 제작까지 한 팀이 끝까지 맡습니다.</p>
+      <p style="margin:0;font-family:Archivo,sans-serif;font-size:clamp(18px,1.6vw,24px);line-height:1.45;color:#66625A;max-width:32em;text-wrap:pretty">So a single sheet becomes a brand’s first impression — one team from planning and print to the finished package.</p>
+      <a href="/about" onClick="{{ go.about }}" style="align-self:flex-start;background:none;border:0;border-bottom:1px solid #1A1915;padding:0 0 4px;cursor:pointer;font-size:15px;display:flex;gap:10px" style-hover="color:#D6421F;border-color:#D6421F">회사 소개 About <span>→</span></a>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,3vw,44px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:28px;border-bottom:1px solid rgba(26,25,21,.18)">
+      <h2 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(56px,9vw,156px);line-height:.85;letter-spacing:-.03em;font-variation-settings:'wdth' 112">Selected<br>Works</h2>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:14px">
+        <span style="font-size:15px;color:#66625A">브랜드의 첫인상을 함께 만든 작업</span>
+        <a href="/works" onClick="{{ go.works }}" style="background:none;border:0;border-bottom:1px solid #1A1915;padding:0 0 4px;cursor:pointer;font-size:15px;display:flex;gap:10px" style-hover="color:#D6421F;border-color:#D6421F"><span>전체 작업 보기 ({{ totalCount }})</span><span>→</span></a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section ref="{{ hRef }}" style="position:relative;height:620vh;margin-top:clamp(28px,4vw,56px)">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+      <div data-bgword="1" style="position:absolute;left:0;top:50%;white-space:nowrap;font-family:Archivo,sans-serif;font-weight:800;font-size:36vh;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(26,25,21,.2);pointer-events:none;will-change:transform;transform:translateY(-50%)">PACKAGE · PRINT · DESIGN · PACKAGE · PRINT · DESIGN ·</div>
+      <div data-track="1" style="position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;gap:6vw;padding:0 10vw 0 28vw;will-change:transform">
+        <sc-for list="{{ featured }}" as="f" hint-placeholder-count="0">
+          <a href="{{ f.href }}" data-panel="1" onClick="{{ f.open }}" style="flex:none;width:clamp(240px,min(30vw,50vh),520px);display:flex;flex-direction:column;gap:14px;cursor:pointer;margin-top:{{ f.yOff }}" style-hover="color:#D6421F">
+            <span data-num="1" style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(64px,min(9vw,15vh),170px);line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #1A1915;will-change:transform">{{ f.n }}</span>
+            <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:{{ f.card }}"><img data-pimg="1" src="{{ f.img }}" alt="{{ f.brand }}" loading="lazy" style="position:absolute;top:0;left:-12%;width:124%;height:100%;object-fit:cover;will-change:transform"></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span data-name="1" style="font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(22px,2vw,32px);letter-spacing:-.01em;white-space:nowrap">{{ f.brand }}</span><span style="font-size:15px;color:#66625A">{{ f.itemsKr }}</span></div>
+          </a>
+        </sc-for>
+        <a href="/works" onClick="{{ go.works }}" style="flex:none;background:none;border:0;cursor:pointer;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(40px,5vw,96px);line-height:.9;letter-spacing:-.03em;text-align:left" style-hover="color:#D6421F">All<br>works →</a>
+      </div>
+      <div style="position:absolute;left:clamp(20px,3vw,44px);right:clamp(20px,3vw,44px);bottom:28px;display:flex;align-items:center;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em">
+        <span data-count="1">01 / 07</span>
+        <div style="flex:1;height:1px;background:rgba(26,25,21,.2);position:relative"><div data-bar="1" style="position:absolute;left:0;top:-1px;height:3px;width:100%;background:#1A1915;transform-origin:0 50%;transform:scaleX(0)"></div></div>
+        <span>SCROLL →</span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section style="margin-top:clamp(96px,14vw,200px);background:#1A1915;color:#EEEAE2;padding:clamp(72px,10vw,140px) clamp(20px,3vw,44px)">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px);margin-bottom:clamp(48px,6vw,88px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#A8A399;padding-top:10px">(HOW WE WORK)</div>
+      <h2 data-reveal="1" style="margin:0;font-size:clamp(26px,3.2vw,48px);font-weight:500;line-height:1.3;letter-spacing:-.03em;max-width:20em;text-wrap:pretty">기획부터 디자인, 패키지 제작까지 한 곳에서 진행합니다.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0">
+      <div data-reveal="1" style="border-top:1px solid #EEEAE2;padding:20px 24px 0 0;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:Archivo,sans-serif;font-weight:300;font-size:64px;line-height:1;color:#D6421F">01</span>
+        <span style="font-family:Archivo,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em">Planning</span>
+        <span style="font-size:18px;font-weight:500">기획</span>
+        <span style="font-size:15px;line-height:1.6;color:#C9C4BA">제품 제안 및 개발</span>
+      </div>
+      <div data-reveal="1" style="border-top:1px solid #EEEAE2;padding:20px 24px 0 0;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:Archivo,sans-serif;font-weight:300;font-size:64px;line-height:1;color:#D6421F">02</span>
+        <span style="font-family:Archivo,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em">Design &amp; Branding</span>
+        <span style="font-size:18px;font-weight:500">디자인 및 브랜딩</span>
+        <span style="font-size:15px;line-height:1.6;color:#C9C4BA">패키지 그래픽 · 인쇄 데이터</span>
+      </div>
+      <div data-reveal="1" style="border-top:1px solid #EEEAE2;padding:20px 24px 0 0;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:Archivo,sans-serif;font-weight:300;font-size:64px;line-height:1;color:#D6421F">03</span>
+        <span style="font-family:Archivo,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em">Production</span>
+        <span style="font-size:18px;font-weight:500">패키지 제작</span>
+        <span style="font-size:15px;line-height:1.6;color:#C9C4BA">인쇄 · 후가공 · 생산</span>
+      </div>
+    </div>
+    <a href="/services" onClick="{{ go.services }}" style="margin-top:clamp(48px,6vw,80px);background:none;border:0;border-bottom:1px solid #EEEAE2;padding:0 0 4px;cursor:pointer;font-size:15px;display:flex;width:fit-content;gap:10px;color:#EEEAE2" style-hover="color:#D6421F;border-color:#D6421F">서비스 자세히 보기 <span>→</span></a>
+  </section>
+
+  <section style="overflow:hidden;border-bottom:1px solid rgba(26,25,21,.18);padding:clamp(28px,4vw,48px) 0">
+    <div ref="{{ marqRef }}" style="display:flex;width:max-content;align-items:center;will-change:transform">
+      <div style="display:flex;align-items:center;gap:clamp(24px,3vw,48px);padding-right:clamp(24px,3vw,48px);font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(44px,7vw,112px);letter-spacing:-.02em;line-height:1;white-space:nowrap">
+        <span>Shopping Bag</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">쇼핑백</span><span style="color:#D6421F">✳</span>
+        <span>Folding Carton</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">단상자</span><span style="color:#D6421F">✳</span>
+        <span>Rigid Box</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">싸바리</span><span style="color:#D6421F">✳</span>
+        <span>Magnetic Box</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">표지바리</span><span style="color:#D6421F">✳</span>
+        <span>Corrugated Box</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">골판지 박스</span><span style="color:#D6421F">✳</span>
+        <span>Tin Case</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">틴케이스</span><span style="color:#D6421F">✳</span>
+      </div>
+      <div aria-hidden="true" style="display:flex;align-items:center;gap:clamp(24px,3vw,48px);padding-right:clamp(24px,3vw,48px);font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(44px,7vw,112px);letter-spacing:-.02em;line-height:1;white-space:nowrap">
+        <span>Shopping Bag</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">쇼핑백</span><span style="color:#D6421F">✳</span>
+        <span>Folding Carton</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">단상자</span><span style="color:#D6421F">✳</span>
+        <span>Rigid Box</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">싸바리</span><span style="color:#D6421F">✳</span>
+        <span>Magnetic Box</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">표지바리</span><span style="color:#D6421F">✳</span>
+        <span>Corrugated Box</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">골판지 박스</span><span style="color:#D6421F">✳</span>
+        <span>Tin Case</span><span style="font-family:'IBM Plex Sans KR',sans-serif;font-size:.28em;font-weight:500">틴케이스</span><span style="color:#D6421F">✳</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(80px,10vw,140px) clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px)">
+    <div style="display:flex;flex-direction:column;gap:8px;padding-top:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">(CLIENTS)</span><span style="font-size:15px">함께한 브랜드</span></div>
+    <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));border-top:1px solid #1A1915">
+      <sc-for list="{{ clients }}" as="c" hint-placeholder-count="12">
+        <span style="padding:18px 16px 18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:Archivo,sans-serif;font-size:clamp(17px,1.4vw,21px);font-weight:600;letter-spacing:-.01em">{{ c }}</span>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:clamp(96px,14vw,200px) clamp(20px,3vw,44px) 0;display:flex;flex-direction:column;gap:36px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">(CONTACT)</span>
+    <a href="/contact" onClick="{{ go.contact }}" data-reveal="1" style="align-self:flex-start;background:none;border:0;padding:0;cursor:pointer;text-align:left;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(64px,12vw,210px);line-height:.86;letter-spacing:-.035em;font-variation-settings:'wdth' 108" style-hover="color:#D6421F">Let’s make<br>a box. →<span style="display:block;margin-top:.45em;font-family:'IBM Plex Sans KR',sans-serif;font-weight:500;font-size:clamp(20px,2.4vw,36px);letter-spacing:-.02em;line-height:1.3">어떤 상자든, 함께 만들어요</span></a>
+    <p style="margin:0;font-size:clamp(18px,1.6vw,22px);color:#4D4A43">패키지 제작 문의 — <a href="mailto:inquiry@teyvat.kr" style="border-bottom:1px solid currentColor">inquiry@teyvat.kr</a></p>
+  </section>
+</sc-if>
+
+<!-- ================= WORKS ================= -->
+<sc-if value="{{ isWorksList }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Works" style="padding:150px clamp(20px,3vw,44px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+      <h1 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(80px,15vw,260px);line-height:.8;letter-spacing:-.04em;font-variation-settings:'wdth' 112">Works</h1>
+      <div style="display:flex;align-items:baseline;gap:10px;padding-bottom:10px"><span style="font-size:20px;font-weight:500">작업</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#66625A">({{ visibleCount }})</span></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:40px;padding:16px 0;border-top:1px solid #1A1915;border-bottom:1px solid rgba(26,25,21,.18)">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="9">
+          <sc-if value="{{ f.active }}" hint-placeholder-val="{{ false }}"><button onClick="{{ f.pick }}" style="background:#1A1915;color:#EEEAE2;border:1px solid #1A1915;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:14px;display:flex;gap:6px;align-items:baseline">{{ f.label }} <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.7">{{ f.count }}</span></button></sc-if>
+          <sc-if value="{{ f.inactive }}" hint-placeholder-val="{{ true }}"><button onClick="{{ f.pick }}" style="background:none;border:1px solid rgba(26,25,21,.25);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:14px;display:flex;gap:6px;align-items:baseline" style-hover="border-color:#1A1915">{{ f.label }} <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#66625A">{{ f.count }}</span></button></sc-if>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em">
+        <button onClick="{{ setGrid }}" style="background:none;border:0;padding:0 0 3px;cursor:pointer;border-bottom:1px solid {{ gridLine }};color:{{ gridColor }}">GRID 그리드</button>
+        <button onClick="{{ setIndex }}" style="background:none;border:0;padding:0 0 3px;cursor:pointer;border-bottom:1px solid {{ indexLine }};color:{{ indexColor }}">INDEX 목록</button>
+      </div>
+    </div>
+
+    <sc-if value="{{ isGrid }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));column-gap:clamp(20px,2.4vw,36px);row-gap:clamp(48px,6vw,88px);padding-top:clamp(32px,4vw,56px)">
+        <sc-for list="{{ worksList }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ item.open }}" style="cursor:pointer;display:flex;flex-direction:column;gap:16px" style-hover="color:#D6421F">
+            <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:{{ item.card }}"><img src="{{ item.cover }}" alt="{{ item.brand }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.03)"></div>
+            <div style="display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:baseline">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px">{{ item.id }}</span>
+              <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+                <span style="font-family:Archivo,sans-serif;font-size:21px;font-weight:700;letter-spacing:-.01em">{{ item.brand }}</span>
+                <span style="font-size:15px;color:#4D4A43">{{ item.itemsKr }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#66625A">{{ item.typesEn }}</span>
+              </div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isIndex }}" hint-placeholder-val="{{ false }}">
+      <div onMouseMove="{{ onIndexMove }}" onMouseLeave="{{ onIndexLeave }}" style="padding-top:8px">
+        <div style="display:grid;grid-template-columns:48px minmax(0,2fr) minmax(0,2fr) minmax(0,1.2fr);gap:20px;padding:14px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">
+          <span>NO.</span><span>CLIENT</span><span>ITEMS 품목</span><span>TYPE 분류</span>
+        </div>
+        <sc-for list="{{ worksList }}" as="item" hint-placeholder-count="8">
+          <div onClick="{{ item.open }}" onMouseEnter="{{ item.enter }}" style="display:grid;grid-template-columns:48px minmax(0,2fr) minmax(0,2fr) minmax(0,1.2fr);gap:20px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(26,25,21,.18);cursor:pointer;transition:padding .3s ease" style-hover="padding-left:12px;color:#D6421F">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px">{{ item.id }}</span>
+            <span style="font-family:Archivo,sans-serif;font-size:clamp(19px,2vw,28px);font-weight:700;letter-spacing:-.02em">{{ item.brand }}</span>
+            <span style="font-size:15px">{{ item.itemsKr }}</span>
+            <span style="font-size:14px;color:#4D4A43">{{ item.typesKr }}</span>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid rgba(26,25,21,.18)"></div>
+      </div>
+      <div ref="{{ previewRef }}" style="position:fixed;left:0;top:0;z-index:40;width:280px;aspect-ratio:4/5;pointer-events:none;opacity:{{ previewOp }};transition:opacity .25s ease;background:#D8D1C4;overflow:hidden">
+        <sc-for list="{{ allWorks }}" as="item" hint-placeholder-count="0">
+          <img src="{{ item.cover }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ item.previewOp }}">
+        </sc-for>
+      </div>
+    </sc-if>
+  </section>
+</sc-if>
+
+<!-- ================= WORK DETAIL ================= -->
+<sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+  <article data-screen-label="Work Detail" style="background:{{ th.bg }};color:{{ th.fg }};padding-bottom:clamp(40px,5vw,64px)">
+    <div style="padding:120px clamp(20px,3vw,44px) 0">
+      <a href="/works" onClick="{{ go.works }}" style="background:none;border:0;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.fg }}" style-hover="color:#D6421F">← ALL WORKS 전체 작업</a>
+    </div>
+    <header style="padding:48px clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,80px);align-items:end">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }}">NO. {{ work.id }} — {{ work.typesEn }}</span>
+        <h1 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(48px,7vw,120px);line-height:.92;letter-spacing:-.035em;font-variation-settings:'wdth' 108;text-wrap:balance">{{ work.brand }}</h1>
+        <span style="font-size:clamp(18px,1.6vw,24px);font-weight:500;color:{{ th.mute }}">{{ work.itemsKr }}</span>
+      </div>
+      <dl style="margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);border-top:1px solid {{ th.fg }}">
+        <dt style="padding:14px 0;border-bottom:1px solid {{ th.line }};font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }}">CLIENT</dt>
+        <dd style="margin:0;padding:14px 0;border-bottom:1px solid {{ th.line }};font-size:15px">{{ work.brand }}</dd>
+        <dt style="padding:14px 0;border-bottom:1px solid {{ th.line }};font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }}">ITEMS</dt>
+        <dd style="margin:0;padding:14px 0;border-bottom:1px solid {{ th.line }};font-size:15px;display:flex;flex-direction:column;gap:2px"><span>{{ work.itemsKr }}</span><span style="font-size:13px;color:{{ th.mute }}">{{ work.itemsEn }}</span></dd>
+        <dt style="padding:14px 0;border-bottom:1px solid {{ th.line }};font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }}">TYPE</dt>
+        <dd style="margin:0;padding:14px 0;border-bottom:1px solid {{ th.line }};font-size:15px;display:flex;flex-direction:column;gap:2px"><span>{{ work.typesKr }}</span><span style="font-size:13px;color:{{ th.mute }}">{{ work.typesNote }}</span></dd>
+        <sc-for list="{{ specRows }}" as="sp" hint-placeholder-count="0">
+          <dt style="padding:14px 0;border-bottom:1px solid {{ th.line }};font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }}">{{ sp.k }}</dt>
+          <dd style="margin:0;padding:14px 0;border-bottom:1px solid {{ th.line }};font-size:15px">{{ sp.v }}</dd>
+        </sc-for>
+      </dl>
+    </header>
+
+    <div style="margin-top:clamp(40px,6vw,80px);position:relative;aspect-ratio:16/9;max-height:90vh;width:100%;overflow:hidden;background:{{ th.card }}"><img src="{{ work.hero }}" alt="{{ work.brand }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+
+    <section style="padding:clamp(64px,9vw,128px) clamp(20px,3vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px)">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }};padding-top:8px">OVERVIEW 개요</span>
+      <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,48px)">
+        <p style="margin:0;font-size:clamp(20px,1.9vw,28px);font-weight:500;line-height:1.5;letter-spacing:-.02em;text-wrap:pretty">{{ work.desc }}</p>
+        <p style="margin:0;font-family:Archivo,sans-serif;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:{{ th.mute }};text-wrap:pretty">{{ work.descEn }}</p>
+      </div>
+    </section>
+
+    <sc-for list="{{ chapters }}" as="ch" hint-placeholder-count="0">
+      <section style="margin:0 clamp(20px,3vw,44px);padding:clamp(28px,3vw,40px) 0 clamp(56px,7vw,104px);border-top:1px solid {{ th.fg }}">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(24px,3vw,40px)">
+          <h3 style="margin:0;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(36px,4.4vw,68px);letter-spacing:-.03em;line-height:.95;font-variation-settings:'wdth' 112">{{ ch.en }}</span><span style="font-size:20px;font-weight:500">{{ ch.kr }}</span></h3>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:{{ th.mute }}">{{ ch.no }} / {{ ch.total }} — {{ ch.count }} IMAGES</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.4vw,20px)">
+          <sc-for list="{{ ch.imgs }}" as="im" hint-placeholder-count="0">
+            <div data-reveal="1" style="grid-column:{{ im.col }};position:relative;aspect-ratio:{{ im.ar }};overflow:hidden;background:{{ th.card }}"><img src="{{ im.src }}" alt="{{ im.alt }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <section onClick="{{ next.open }}" style="margin:clamp(40px,5vw,80px) clamp(20px,3vw,44px) 0;padding:28px 0 0;border-top:1px solid {{ th.fg }};cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,280px);gap:clamp(20px,3vw,48px);align-items:end" style-hover="color:#D6421F">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em">NEXT PROJECT 다음 작업 — {{ next.id }}</span>
+        <span style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(40px,6.4vw,108px);letter-spacing:-.035em;line-height:.92;font-variation-settings:'wdth' 108">{{ next.brand }} →</span>
+        <span style="font-size:clamp(16px,1.4vw,20px)">{{ next.itemsKr }}</span>
+      </div>
+      <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:{{ th.card }}"><img src="{{ next.cover }}" alt="{{ next.brand }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    </section>
+  </article>
+</sc-if>
+
+<!-- ================= SERVICES ================= -->
+<sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Services" style="padding:150px clamp(20px,3vw,44px) 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+      <h1 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(72px,14vw,240px);line-height:.8;letter-spacing:-.04em;font-variation-settings:'wdth' 112">Services</h1>
+      <span style="font-size:20px;font-weight:500;padding-bottom:10px">서비스</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px);padding:clamp(56px,8vw,112px) 0">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A;padding-top:10px">(ONE STOP)</span>
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0;font-size:clamp(24px,3vw,44px);font-weight:500;line-height:1.35;letter-spacing:-.03em;max-width:21em;text-wrap:pretty">디자인 따로, 인쇄 따로 찾지 않아도 됩니다. 쇼핑백부터 박스, 파우치까지 한 곳에서 발주하고 관리하세요.</p>
+        <p style="margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.6;color:#4D4A43;max-width:34em">정기적인 피드백과 모니터링으로, 발주 이후에도 빠르게 대응합니다.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:16px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">WHAT WE MAKE 제작 품목</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">06</span>
+    </div>
+    <div style="border-top:1px solid #1A1915">
+      <sc-for list="{{ lines }}" as="l" hint-placeholder-count="6">
+        <div data-reveal="1" style="display:grid;grid-template-columns:48px minmax(0,1.4fr) minmax(0,1fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding:clamp(22px,2.4vw,34px) 0;border-bottom:1px solid rgba(26,25,21,.18)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px">{{ l.no }}</span>
+          <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:clamp(22px,2.4vw,34px);font-weight:500;letter-spacing:-.025em">{{ l.kr }}</span><span style="font-size:15px;color:#4D4A43">{{ l.sub }}</span></span>
+          <span style="font-family:Archivo,sans-serif;font-size:clamp(16px,1.4vw,20px);color:#66625A">{{ l.en }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section ref="{{ procRef }}" style="position:relative;height:420vh;margin-top:clamp(96px,12vw,180px);background:#1A1915;color:#EEEAE2">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:grid;grid-template-columns:{{ procCols }};grid-template-rows:{{ procRows }};align-items:center;gap:clamp(16px,3vw,64px);padding:clamp(72px,10vh,88px) clamp(20px,3vw,44px) 28px;box-sizing:border-box">
+      <div style="display:flex;flex-direction:column;gap:clamp(12px,2.6vh,36px);min-width:0;align-self:center">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><h2 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(32px,min(5.6vw,9vh),100px);letter-spacing:-.03em;line-height:.9;font-variation-settings:'wdth' 112">Process</h2><span style="font-size:16px;font-weight:500">진행 과정</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px"><div style="display:flex;flex-direction:column;gap:10px"><div style="height:2px;background:rgba(238,234,226,.18);position:relative;overflow:hidden"><div data-pbar="1" style="position:absolute;inset:0;background:#D6421F;transform-origin:0 50%;transform:scaleX(0)"></div></div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A8A399">01 PLANNING</span></div><div style="display:flex;flex-direction:column;gap:10px"><div style="height:2px;background:rgba(238,234,226,.18);position:relative;overflow:hidden"><div data-pbar="1" style="position:absolute;inset:0;background:#D6421F;transform-origin:0 50%;transform:scaleX(0)"></div></div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A8A399">02 DESIGN</span></div><div style="display:flex;flex-direction:column;gap:10px"><div style="height:2px;background:rgba(238,234,226,.18);position:relative;overflow:hidden"><div data-pbar="1" style="position:absolute;inset:0;background:#D6421F;transform-origin:0 50%;transform:scaleX(0)"></div></div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A8A399">03 PRODUCTION</span></div></div>
+        <div style="height:clamp(56px,min(14vw,18vh),240px);overflow:hidden;font-family:Archivo,sans-serif;font-weight:300;font-size:clamp(56px,min(14vw,18vh),240px);line-height:1;letter-spacing:-.04em;color:#D6421F"><div data-pdigits="1" style="display:flex;flex-direction:column;transition:transform .7s cubic-bezier(.7,0,.2,1)"><span style="display:block;height:1em">01</span><span style="display:block;height:1em">02</span><span style="display:block;height:1em">03</span></div></div>
+        <div style="position:relative;min-height:min(230px,30vh)">
+          <div data-pstep="1" style="position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:12px;opacity:0;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1);transform:translateY(16px)"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#A8A399">STEP 01 — PLANNING</span><span style="font-size:clamp(24px,min(3.4vw,6vh),56px);font-weight:500;letter-spacing:-.03em;line-height:1.15">기획</span><span style="display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline"><span style="font-size:17px;color:#C9C4BA">제품 제안 및 개발</span><span style="font-family:Archivo,sans-serif;font-size:15px;color:#A8A399">Planning &amp; Development</span></span><p style="margin:6px 0 0;font-size:15px;line-height:1.7;color:#C9C4BA;max-width:26em;text-wrap:pretty">아이디어만 있어도 괜찮아요. 제품과 예산에 맞는 구조와 소재를 제안합니다.</p></div>
+          <div data-pstep="1" style="position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:12px;opacity:0;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1);transform:translateY(16px)"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#A8A399">STEP 02 — DESIGN</span><span style="font-size:clamp(24px,min(3.4vw,6vh),56px);font-weight:500;letter-spacing:-.03em;line-height:1.15">디자인 및 브랜딩</span><span style="display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline"><span style="font-size:17px;color:#C9C4BA">패키지 그래픽 · 인쇄 데이터</span><span style="font-family:Archivo,sans-serif;font-size:15px;color:#A8A399">Design &amp; Branding</span></span><p style="margin:6px 0 0;font-size:15px;line-height:1.7;color:#C9C4BA;max-width:26em;text-wrap:pretty">브랜드에 맞춰 패키지 그래픽을 만들고 인쇄 데이터를 정리합니다.</p></div>
+          <div data-pstep="1" style="position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:12px;opacity:0;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1);transform:translateY(16px)"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#A8A399">STEP 03 — PRODUCTION</span><span style="font-size:clamp(24px,min(3.4vw,6vh),56px);font-weight:500;letter-spacing:-.03em;line-height:1.15">패키지 제작</span><span style="display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline"><span style="font-size:17px;color:#C9C4BA">인쇄 · 후가공 · 생산</span><span style="font-family:Archivo,sans-serif;font-size:15px;color:#A8A399">Package Production</span></span><p style="margin:6px 0 0;font-size:15px;line-height:1.7;color:#C9C4BA;max-width:26em;text-wrap:pretty">인쇄와 후가공, 조립을 거쳐 완성품으로 납품합니다.</p></div>
+        </div>
+      </div>
+      <div data-pstage="1" onPointerDown="{{ pDown }}" onPointerMove="{{ pMove }}" onPointerUp="{{ pUp }}" onPointerCancel="{{ pUp }}" style="position:relative;height:100%;min-height:0;perspective:2000px;order:{{ procStageOrder }};touch-action:pan-y;cursor:{{ procCursor }}">
+        <div data-pscale="1" style="position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d">
+          <div data-pscene="1" style="position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d">
+            <div data-pf="base" style="position:absolute;left:-100px;top:-100px;width:200px;height:200px;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;background:#E4DFD5"></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateY(180deg) translateZ(.6px)"><div style="position:absolute;inset:0;background:#E4DFD5"></div></div></div><svg viewBox="0 0 200 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="800" x="0" y="0" width="200" height="200" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:800;stroke-dashoffset:800"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">BASE</span></div>
+              <div data-dim="1" style="position:absolute;left:0px;top:424px;width:200px;height:1px;background:#D6421F;opacity:0"><span style="position:absolute;top:-4px;left:0;width:1px;height:9px;background:#D6421F"></span><span style="position:absolute;top:-4px;right:0;width:1px;height:9px;background:#D6421F"></span><span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D6421F;letter-spacing:.06em">200</span></div><div data-dim="1" style="position:absolute;left:-200px;top:224px;width:200px;height:1px;background:#D6421F;opacity:0"><span style="position:absolute;top:-4px;left:0;width:1px;height:9px;background:#D6421F"></span><span style="position:absolute;top:-4px;right:0;width:1px;height:9px;background:#D6421F"></span><span style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D6421F;letter-spacing:.06em">200</span></div><div data-dim="1" style="position:absolute;left:424px;top:0px;width:1px;height:200px;background:#D6421F;opacity:0"><span style="position:absolute;left:-4px;top:0;width:9px;height:1px;background:#D6421F"></span><span style="position:absolute;left:-4px;bottom:0;width:9px;height:1px;background:#D6421F"></span><span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D6421F;letter-spacing:.06em">200</span></div>
+              <div data-pf="front" style="position:absolute;left:0;top:100%;width:200px;height:200px;transform-origin:50% 0;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;background:#EEEAE2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#1A1915"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:31px;letter-spacing:-.01em;font-variation-settings:'wdth' 125">TEYVAT</span><span style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.14em">DESIGN &amp; PRINTING</span></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateX(180deg) translateZ(.6px)"><div style="position:absolute;inset:0;background:#EEEAE2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#1A1915"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:31px;letter-spacing:-.01em;font-variation-settings:'wdth' 125">TEYVAT</span><span style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.14em">DESIGN &amp; PRINTING</span></div></div></div><svg viewBox="0 0 200 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="800" x="0" y="0" width="200" height="200" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:800;stroke-dashoffset:800"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">FRONT</span></div></div>
+              <div data-pf="left" style="position:absolute;right:100%;top:0;width:200px;height:200px;transform-origin:100% 50%;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;background:#D6421F;display:flex;align-items:center;justify-content:center"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:#EEEAE2;transform:rotate(-90deg);white-space:nowrap">PACKAGE</span></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateY(180deg) translateZ(.6px)"><div style="position:absolute;inset:0;background:#D6421F;display:flex;align-items:center;justify-content:center"><span style="font-family:Archivo,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:#EEEAE2;transform:rotate(90deg);white-space:nowrap">PACKAGE</span></div></div></div><svg viewBox="0 0 200 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="800" x="0" y="0" width="200" height="200" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:800;stroke-dashoffset:800"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">SIDE</span></div></div>
+              <div data-pf="right" style="position:absolute;left:100%;top:0;width:200px;height:200px;transform-origin:0 50%;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;transform:rotate(90deg)"><div style="position:absolute;inset:0;background:#1A1915;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:14px;box-sizing:border-box;color:#EEEAE2;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;line-height:1.5"><span>TEYVAT D&amp;P</span><span>INQUIRY@TEYVAT.KR</span><span style="color:#D6421F">@TEYVAT.KR</span></div></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateY(180deg) translateZ(.6px) rotateZ(180deg)"><div style="position:absolute;inset:0;background:#1A1915;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:14px;box-sizing:border-box;color:#EEEAE2;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;line-height:1.5"><span>TEYVAT D&amp;P</span><span>INQUIRY@TEYVAT.KR</span><span style="color:#D6421F">@TEYVAT.KR</span></div></div></div><svg viewBox="0 0 200 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="800" x="0" y="0" width="200" height="200" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:800;stroke-dashoffset:800"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">SIDE</span></div></div>
+              <div data-pf="back" style="position:absolute;left:0;bottom:100%;width:200px;height:200px;transform-origin:50% 100%;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;background:#EEEAE2;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 112 34" style="height:38px;width:auto;display:block;fill:#1A1915"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateX(180deg) translateZ(.6px)"><div style="position:absolute;inset:0;background:#EEEAE2;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 112 34" style="height:38px;width:auto;display:block;fill:#1A1915"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg></div></div></div><svg viewBox="0 0 200 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="800" x="0" y="0" width="200" height="200" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:800;stroke-dashoffset:800"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">BACK</span></div>
+                <div data-pf="lid" style="position:absolute;left:0;bottom:100%;width:200px;height:200px;transform-origin:50% 100%;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;transform:rotate(180deg)"><div style="position:absolute;inset:0;background:#1A1915;display:flex;align-items:center;justify-content:center;outline:1px solid rgba(238,234,226,.25);outline-offset:-10px"><svg viewBox="0 0 112 34" style="height:30px;width:auto;display:block;fill:#EEEAE2"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg></div></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateY(180deg) translateZ(.6px) rotateZ(180deg)"><div style="position:absolute;inset:0;background:#1A1915;display:flex;align-items:center;justify-content:center;outline:1px solid rgba(238,234,226,.25);outline-offset:-10px"><svg viewBox="0 0 112 34" style="height:30px;width:auto;display:block;fill:#EEEAE2"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg></div></div></div><svg viewBox="0 0 200 200" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="800" x="0" y="0" width="200" height="200" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:800;stroke-dashoffset:800"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">LID</span></div>
+                  <div data-pf="tuck" style="position:absolute;left:0;bottom:100%;width:200px;height:36px;transform-origin:50% 100%;transform-style:preserve-3d"><div style="position:absolute;inset:0;transform-style:preserve-3d"><div data-fill="1" style="position:absolute;inset:0;background:#EEEAE2;opacity:0"></div><div data-print="1" style="position:absolute;inset:0;transform-style:preserve-3d"><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:translateZ(.6px)"><div style="position:absolute;inset:0;background:#1A1915"></div></div><div data-pa="1" style="position:absolute;opacity:0;inset:0;overflow:hidden;backface-visibility:hidden;transform:rotateY(180deg) translateZ(.6px)"><div style="position:absolute;inset:0;background:#1A1915"></div></div></div><svg viewBox="0 0 200 36" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><rect data-line="472" x="0" y="0" width="200" height="36" style="fill:none;stroke:#EEEAE2;stroke-width:1.4;stroke-dasharray:472;stroke-dashoffset:472"></rect></svg><span data-lbl="1" style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#EEEAE2;opacity:0">TUCK</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span data-pnote="1" style="position:absolute;left:0;bottom:0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#A8A399">DIELINE — 200 × 200 × 200</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(96px,12vw,180px) clamp(20px,3vw,44px) 0">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:28px;border-bottom:1px solid #1A1915">
+      <h2 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(44px,6vw,100px);letter-spacing:-.03em;line-height:.9;font-variation-settings:'wdth' 112">Product<br>Range</h2>
+      <span style="font-size:18px;font-weight:500">패키지 종류</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));column-gap:clamp(20px,2.4vw,36px);row-gap:clamp(40px,5vw,64px);padding-top:clamp(32px,4vw,56px)">
+      <sc-for list="{{ range }}" as="r" hint-placeholder-count="7">
+        <div data-reveal="1" onClick="{{ r.go }}" style="cursor:{{ r.cursor }};display:flex;flex-direction:column;gap:14px" style-hover="color:#D6421F">
+          <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#E4DFD5"><img src="{{ r.img }}" alt="{{ r.kr }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.03)"></div>
+          <span style="display:flex;justify-content:space-between;gap:12px;align-items:baseline"><span style="font-size:20px;font-weight:500">{{ r.kr }} <span style="font-family:Archivo,sans-serif;font-weight:500;font-size:16px;color:#66625A">{{ r.en }}</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#66625A">{{ r.no }}</span></span>
+          <span style="font-size:14px;line-height:1.6;color:#4D4A43">{{ r.sub }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#66625A">{{ r.link }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:clamp(96px,12vw,180px) clamp(20px,3vw,44px) 0">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:28px;border-bottom:1px solid #1A1915">
+      <h2 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(44px,6vw,100px);letter-spacing:-.03em;line-height:.9;font-variation-settings:'wdth' 112">Finishing</h2>
+      <span style="font-size:18px;font-weight:500">후가공 디테일</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));column-gap:clamp(16px,2vw,28px);row-gap:clamp(32px,4vw,48px);padding-top:clamp(28px,3vw,44px)">
+      <sc-for list="{{ finishes }}" as="f" hint-placeholder-count="4">
+        <div data-reveal="1" onClick="{{ f.open }}" style="cursor:pointer;display:flex;flex-direction:column;gap:12px" style-hover="color:#D6421F">
+          <div style="position:relative;aspect-ratio:1/1;overflow:hidden;background:#141413"><img src="{{ f.img }}" alt="{{ f.kr }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.35);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.5)"></div>
+          <span style="display:flex;justify-content:space-between;gap:12px;align-items:baseline"><span style="font-size:18px;font-weight:500">{{ f.kr }} <span style="font-family:Archivo,sans-serif;font-weight:500;font-size:15px;color:#66625A">{{ f.en }}</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#66625A">{{ f.no }}</span></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#66625A">{{ f.src }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:clamp(96px,12vw,180px) clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(24px,4vw,64px)">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h2 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(44px,6vw,100px);letter-spacing:-.03em;line-height:.9;font-variation-settings:'wdth' 112">FAQ</h2>
+      <span style="font-size:18px;font-weight:500">자주 묻는 질문</span>
+      <a href="/contact" onClick="{{ go.contact }}" style="align-self:flex-start;margin-top:12px;background:none;border:0;border-bottom:1px solid #1A1915;padding:0 0 4px;cursor:pointer;font-size:15px;display:flex;gap:10px" style-hover="color:#D6421F;border-color:#D6421F"><span>다른 질문이 있다면 문의하기</span><span>→</span></a>
+    </div>
+    <div style="border-top:1px solid #1A1915">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid rgba(26,25,21,.18)">
+          <button aria-expanded="{{ q.open }}" onClick="{{ q.toggle }}" style="width:100%;background:none;border:0;padding:22px 0;cursor:pointer;display:grid;grid-template-columns:40px minmax(0,1fr) 28px;gap:12px;align-items:baseline;text-align:left" style-hover="color:#D6421F">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px">{{ q.no }}</span>
+            <span style="font-size:clamp(18px,1.6vw,22px);font-weight:500;letter-spacing:-.02em">{{ q.q }}</span>
+            <span style="font-family:Archivo,sans-serif;font-size:24px;line-height:1;text-align:right">{{ q.sign }}</span>
+          </button>
+          <div hidden="{{ q.closed }}">
+            <p style="margin:0;padding:0 40px 24px 52px;font-size:16px;line-height:1.75;color:#4D4A43;text-wrap:pretty">{{ q.a }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ================= ABOUT ================= -->
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="About" style="padding:150px clamp(20px,3vw,44px) 0">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">ABOUT 회사 소개</span>
+    <h1 style="margin:28px 0 0;font-size:clamp(36px,6vw,96px);font-weight:500;line-height:1.18;letter-spacing:-.045em;max-width:13em;text-wrap:balance">소중한 것을 담는 상자, 테바.</h1>
+    <p style="margin:24px 0 0;font-family:Archivo,sans-serif;font-size:clamp(20px,2vw,30px);color:#66625A;max-width:28em">TEYVAT — from תבה, the Hebrew word for ark: a vessel that keeps what matters safe.</p>
+  </section>
+  <div style="margin-top:clamp(56px,8vw,112px);position:relative;aspect-ratio:21/9;width:100%;overflow:hidden;background:#E4DFD5"><img src="/assets/web/jade/bag-08.webp" alt="Jade Palace Golf Club 쇼핑백 형압 디테일" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%"></div>
+  <section style="padding:clamp(64px,9vw,128px) clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px)">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A;padding-top:8px">(STORY)</span>
+    <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <svg viewBox="0 0 112 34" style="width:100%;max-width:420px;height:auto;display:block;fill:#1A1915"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#66625A">תבה — TEVAH · 방주</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <p style="margin:0;font-size:clamp(20px,1.9vw,28px);font-weight:500;line-height:1.55;letter-spacing:-.02em;text-wrap:pretty">테바(תבה)는 히브리어로 ‘방주’를 뜻합니다. 소중한 것을 담아 안전하게 지키는 상자. 우리가 만드는 패키지도 그렇습니다.</p>
+        <p style="margin:0;font-size:clamp(16px,1.3vw,18px);line-height:1.75;color:#4D4A43;text-wrap:pretty">제품을 보호하는 데서 그치지 않고, 브랜드가 고객의 손에 처음 닿는 순간까지 설계합니다. 종이를 고르고, 구조를 접고, 인쇄와 후가공으로 마무리하는 모든 과정을 한 팀이 맡습니다.</p>
+      </div>
+    </div>
+  </section>
+  <section style="padding:clamp(64px,9vw,128px) clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px)">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A;padding-top:8px">(COMPANY)</span>
+    <div style="display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
+      <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,48px)">
+        <p style="margin:0;font-size:clamp(19px,1.7vw,24px);font-weight:500;line-height:1.6;letter-spacing:-.02em;text-wrap:pretty">고객의 성공적인 비즈니스를 우선으로 하여, 최고 품질의 인쇄, 디자인, 패키징 솔루션으로 1:1 맞춤 서비스를 제공합니다.</p>
+        <p style="margin:0;font-size:clamp(16px,1.3vw,18px);line-height:1.7;color:#4D4A43;text-wrap:pretty">디자인과 패키징에 관련된 종합 서비스 제공으로, 한 곳에서 다양한 품목의 발주 및 관리로 시간과 비용을 절감하실 수 있습니다. 정기적인 피드백과 모니터링을 통해 신속한 대응 및 관리가 가능합니다.</p>
+      </div>
+      <dl data-reveal="1" style="margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);border-top:1px solid #1A1915">
+        <dt style="padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">COMPANY</dt>
+        <dd style="margin:0;padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px">테바디엔피 <span style="font-family:Archivo,sans-serif;color:#66625A">TEYVAT D&amp;P</span></dd>
+        <dt style="padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">CEO</dt>
+        <dd style="margin:0;padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px">대표 김동현</dd>
+        <dt style="padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">FIELD</dt>
+        <dd style="margin:0;padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px">기획 · 디자인 및 브랜딩 · 인쇄 · 패키지 제작</dd>
+        <dt style="padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">PARTNERSHIP</dt>
+        <dd style="margin:0;padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px;display:flex;flex-direction:column;gap:4px"><span>2024.10 하이어엑스와 무인매장 소모품 패키지 MOU</span><span style="font-size:14px;color:#66625A">HigherX ‘Brownie’ — 소모품 패키지 의뢰·제작 연계</span></dd>
+        <dt style="padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">EMAIL</dt>
+        <dd style="margin:0;padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px"><a href="mailto:inquiry@teyvat.kr" style="border-bottom:1px solid currentColor">inquiry@teyvat.kr</a></dd>
+        <dt style="padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">INSTAGRAM</dt>
+        <dd style="margin:0;padding:18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px"><a href="https://www.instagram.com/teyvat.kr/" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor">@teyvat.kr</a></dd>
+      </dl>
+    </div>
+  </section>
+  <section style="padding:clamp(80px,10vw,140px) clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(24px,4vw,64px)">
+    <div style="display:flex;flex-direction:column;gap:8px;padding-top:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">(CLIENTS)</span><span style="font-size:15px">함께한 브랜드</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));border-top:1px solid #1A1915">
+      <sc-for list="{{ clients }}" as="c" hint-placeholder-count="12">
+        <span style="padding:18px 16px 18px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:Archivo,sans-serif;font-size:clamp(17px,1.4vw,21px);font-weight:600;letter-spacing:-.01em">{{ c }}</span>
+      </sc-for>
+    </div>
+  </section>
+  <section style="padding:clamp(96px,12vw,180px) clamp(20px,3vw,44px) 0">
+    <a href="/contact" onClick="{{ go.contact }}" style="background:none;border:0;padding:0;cursor:pointer;text-align:left;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(56px,10vw,180px);line-height:.86;letter-spacing:-.035em;font-variation-settings:'wdth' 108" style-hover="color:#D6421F">Let’s make<br>a box. →<span style="display:block;margin-top:.45em;font-family:'IBM Plex Sans KR',sans-serif;font-weight:500;font-size:clamp(20px,2.4vw,36px);letter-spacing:-.02em;line-height:1.3">어떤 상자든, 함께 만들어요</span></a>
+  </section>
+</sc-if>
+
+<!-- ================= CONTACT ================= -->
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Contact" style="padding:150px clamp(20px,3vw,44px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,6vw,96px)">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <h1 style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(64px,9vw,156px);line-height:.84;letter-spacing:-.04em;font-variation-settings:'wdth' 108">Start a<br>project</h1>
+      <span style="font-size:22px;font-weight:500">프로젝트 문의</span>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4D4A43;max-width:24em;text-wrap:pretty">품목과 수량, 일정을 알려주시면 사양과 견적을 안내해 드립니다.</p>
+      <dl style="margin:12px 0 0;display:grid;grid-template-columns:120px minmax(0,1fr);border-top:1px solid #1A1915">
+        <dt style="padding:16px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">EMAIL</dt>
+        <dd style="margin:0;padding:16px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px"><a href="mailto:inquiry@teyvat.kr" style="border-bottom:1px solid currentColor">inquiry@teyvat.kr</a></dd>
+        <dt style="padding:16px 0;border-bottom:1px solid rgba(26,25,21,.18);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">INSTAGRAM</dt>
+        <dd style="margin:0;padding:16px 0;border-bottom:1px solid rgba(26,25,21,.18);font-size:16px"><a href="https://www.instagram.com/teyvat.kr/" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor">@teyvat.kr</a></dd>
+      </dl>
+    </div>
+
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form method="post" action="/api/contact" aria-busy="{{ submitting }}" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:28px;padding-top:8px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px">
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">브랜드 · 회사명 *</span><input required="{{ true }}" name="company" maxLength="120" autoComplete="organization" value="{{ form.company }}" onChange="{{ set.company }}" style="background:transparent;border:0;border-bottom:1px solid #1A1915;padding:10px 0;font-size:18px;outline:none;border-radius:0" style-focus="border-color:#D6421F"></label>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">담당자 *</span><input required="{{ true }}" name="name" maxLength="80" autoComplete="name" value="{{ form.name }}" onChange="{{ set.name }}" style="background:transparent;border:0;border-bottom:1px solid #1A1915;padding:10px 0;font-size:18px;outline:none;border-radius:0" style-focus="border-color:#D6421F"></label>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">연락처 *</span><input required="{{ true }}" type="tel" name="phone" maxLength="40" autoComplete="tel" value="{{ form.phone }}" onChange="{{ set.phone }}" style="background:transparent;border:0;border-bottom:1px solid #1A1915;padding:10px 0;font-size:18px;outline:none;border-radius:0" style-focus="border-color:#D6421F"></label>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">이메일 *</span><input required="{{ true }}" type="email" name="email" maxLength="254" autoComplete="email" value="{{ form.email }}" onChange="{{ set.email }}" style="background:transparent;border:0;border-bottom:1px solid #1A1915;padding:10px 0;font-size:18px;outline:none;border-radius:0" style-focus="border-color:#D6421F"></label>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">품목 (복수 선택)</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ itemOpts }}" as="o" hint-placeholder-count="8">
+              <sc-if value="{{ o.active }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ o.toggle }}" style="background:#1A1915;color:#EEEAE2;border:1px solid #1A1915;border-radius:999px;padding:10px 16px;cursor:pointer;font-size:15px">{{ o.label }}</button></sc-if>
+              <sc-if value="{{ o.inactive }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ o.toggle }}" style="background:none;border:1px solid rgba(26,25,21,.25);border-radius:999px;padding:10px 16px;cursor:pointer;font-size:15px" style-hover="border-color:#1A1915">{{ o.label }}</button></sc-if>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">예상 수량</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ qtyOpts }}" as="o" hint-placeholder-count="4">
+              <sc-if value="{{ o.active }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ o.pick }}" style="background:#1A1915;color:#EEEAE2;border:1px solid #1A1915;border-radius:999px;padding:10px 16px;cursor:pointer;font-size:15px">{{ o.label }}</button></sc-if>
+              <sc-if value="{{ o.inactive }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ o.pick }}" style="background:none;border:1px solid rgba(26,25,21,.25);border-radius:999px;padding:10px 16px;cursor:pointer;font-size:15px" style-hover="border-color:#1A1915">{{ o.label }}</button></sc-if>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">예산 범위</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ budgetOpts }}" as="o" hint-placeholder-count="5">
+              <sc-if value="{{ o.active }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ o.pick }}" style="background:#1A1915;color:#EEEAE2;border:1px solid #1A1915;border-radius:999px;padding:10px 16px;cursor:pointer;font-size:15px">{{ o.label }}</button></sc-if>
+              <sc-if value="{{ o.inactive }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ o.pick }}" style="background:none;border:1px solid rgba(26,25,21,.25);border-radius:999px;padding:10px 16px;cursor:pointer;font-size:15px" style-hover="border-color:#1A1915">{{ o.label }}</button></sc-if>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">희망 납기</span><input name="due" maxLength="120" autoComplete="off" value="{{ form.due }}" onChange="{{ set.due }}" placeholder="예: 2026년 12월 초" style="background:transparent;border:0;border-bottom:1px solid #1A1915;padding:10px 0;font-size:18px;outline:none;border-radius:0" style-focus="border-color:#D6421F"></label>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">문의 내용</span><textarea rows="5" name="message" maxLength="5000" value="{{ form.message }}" onChange="{{ set.message }}" placeholder="제품 크기, 원하는 소재나 후가공, 참고 이미지 등을 적어주세요." style="background:transparent;border:0;border-bottom:1px solid #1A1915;padding:10px 0;font-size:17px;line-height:1.6;outline:none;resize:vertical;border-radius:0" style-focus="border-color:#D6421F"></textarea></label>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">참고 이미지 · 도면 첨부</span>
+          <label style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:18px;border:1px dashed rgba(26,25,21,.35);cursor:pointer" style-hover="border-color:#1A1915">
+            <input name="attachments" type="file" multiple="" accept=".jpg,.jpeg,.png,.webp,.pdf,.ai,.psd,.zip" onChange="{{ onFiles }}" style="position:absolute;width:1px;height:1px;opacity:0">
+            <span style="background:#1A1915;color:#EEEAE2;padding:10px 14px;font-size:14px">파일 선택</span>
+            <span style="font-size:14px;color:#4D4A43">{{ fileLabel }}</span>
+          </label>
+          <span style="font-size:13px;color:#66625A">JPG · PNG · WEBP · PDF · AI · PSD · ZIP, 최대 5개 · 합계 2MB. 첨부 파일은 네이버웍스 공용 드라이브의 담당자용 폴더에 저장됩니다.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;background:#E4DFD5">
+          <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer">
+            <input name="consent" type="checkbox" required="{{ true }}" checked="{{ form.consent }}" onChange="{{ onConsent }}" style="width:18px;height:18px;margin:2px 0 0;accent-color:#1A1915;flex:none">
+            <span style="font-size:15px;line-height:1.5">개인정보 수집 · 이용에 동의합니다. <span style="color:#D6421F">(필수)</span></span>
+          </label>
+          <button type="button" onClick="{{ togglePriv }}" style="align-self:flex-start;background:none;border:0;border-bottom:1px solid currentColor;padding:0 0 2px;margin-left:30px;cursor:pointer;font-size:13px;color:#4D4A43">{{ privLabel }}</button>
+          <sc-if value="{{ privOpen }}" hint-placeholder-val="{{ false }}">
+            <dl style="margin:0 0 0 30px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:13px;line-height:1.6;color:#4D4A43">
+              <dt style="color:#1A1915">수집 항목</dt><dd style="margin:0">브랜드 · 회사명, 담당자, 연락처, 이메일, 문의 내용, 첨부 파일</dd>
+              <dt style="color:#1A1915">이용 목적</dt><dd style="margin:0">문의 확인, 사양 · 견적 안내 및 상담</dd>
+              <dt style="color:#1A1915">보유 기간</dt><dd style="margin:0">문의 처리 목적 달성 후 지체 없이 파기. 관련 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관</dd>
+              <dt style="color:#1A1915">거부 권리</dt><dd style="margin:0">동의를 거부할 수 있으며, 거부 시 문의 접수가 제한됩니다.</dd>
+            </dl>
+          </sc-if>
+        </div>
+        <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin:0;font-size:14px;color:#D6421F">{{ formErr }}</p></sc-if>
+        <input type="text" name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px" />
+        <button disabled="{{ submitting }}" type="submit" style="align-self:flex-start;background:#1A1915;color:#EEEAE2;border:0;padding:18px 28px;cursor:pointer;font-size:16px;display:flex;gap:12px;align-items:center" style-hover="background:#D6421F">{{ submitLabel }} <span style="font-family:Archivo,sans-serif">Send →</span></button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:20px;padding-top:8px;border-top:1px solid #1A1915">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A;padding-top:16px">RECEIVED 접수 완료</span>
+        <p style="margin:0;font-size:clamp(26px,3vw,40px);font-weight:500;line-height:1.35;letter-spacing:-.03em">{{ form.company }}님, 문의가 접수되었습니다.</p>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#4D4A43">확인 후 남겨주신 연락처로 안내해 드립니다.</p><p role="status" style="margin:0;font-size:13px;color:#66625A">접수번호: {{ receiptId }}</p>
+        <button onClick="{{ resetForm }}" style="align-self:flex-start;background:none;border:0;border-bottom:1px solid #1A1915;padding:0 0 4px;cursor:pointer;font-size:15px" style-hover="color:#D6421F;border-color:#D6421F">새 문의 작성</button>
+      </div>
+    </sc-if>
+  </section>
+</sc-if>
+
+</main>
+
+<footer style="margin-top:clamp(96px,12vw,180px);border-top:1px solid #1A1915;padding:40px clamp(20px,3vw,44px) 24px;overflow:hidden">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">COMPANY</span><span style="font-size:15px">테바디엔피 · 대표 김동현</span><span style="font-size:15px;color:#4D4A43">디자인 · 인쇄 · 패키지 제작</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">MENU</span>
+      <a href="/works" onClick="{{ go.works }}" style="background:none;border:0;padding:0;cursor:pointer;font-size:15px" style-hover="color:#D6421F">Works 작업</a>
+      <a href="/services" onClick="{{ go.services }}" style="background:none;border:0;padding:0;cursor:pointer;font-size:15px" style-hover="color:#D6421F">Services 서비스</a>
+      <a href="/about" onClick="{{ go.about }}" style="background:none;border:0;padding:0;cursor:pointer;font-size:15px" style-hover="color:#D6421F">About 소개</a>
+      <a href="/contact" onClick="{{ go.contact }}" style="background:none;border:0;padding:0;cursor:pointer;font-size:15px" style-hover="color:#D6421F">Contact 문의</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#66625A">CONTACT</span><a href="mailto:inquiry@teyvat.kr" style="font-size:15px">inquiry@teyvat.kr</a><a href="https://www.instagram.com/teyvat.kr/" target="_blank" rel="noopener" style="font-size:15px">Instagram @teyvat.kr ↗</a></div>
+  </div>
+  <svg viewBox="0 0 112 34" style="display:block;width:100%;height:auto;margin-top:clamp(56px,7vw,96px);fill:#1A1915"><path d="M0 0H23A11 11 0 0 1 34 11V34H23V11H0Z"></path><path d="M0 13H11V34H0Z"></path><path d="M36 0H59A11 11 0 0 1 70 11V23H72V34H36V23H59V11H36Z"></path><path d="M75 0H101A11 11 0 0 1 112 11V34H101V11H89V30A4 4 0 0 1 85 34H75V23H78V11H75Z"></path></svg>
+  <div style="margin-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#66625A">
+    <span>© 2026 TEYVAT D&amp;P — DESIGN &amp; PRINTING</span>
+    <button onClick="{{ toTop }}" style="background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit" style-hover="color:#D6421F">TOP ↑</button>
+  </div>
+</footer>
