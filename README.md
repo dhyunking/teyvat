@@ -6,7 +6,11 @@
 
 호스팅형 [Pages CMS](https://app.pagescms.org)를 사용합니다. 별도 CMS 서버나 콘텐츠 DB를 운영하지 않으며 `.pages.yml`이 관리 폼을 정의하고 `content/works.json`이 작업물을 저장합니다. 기존 29개 작업물의 번호, 내용, 이미지와 배치를 옮겼습니다.
 
-최초 연결은 저장소 소유자 `dhyunking`이 [Pages CMS GitHub 앱](https://github.com/apps/pages-cms/installations/new)과 [Vercel GitHub 앱](https://github.com/apps/vercel/installations/new)에 `teyvat` 저장소를 허용해야 합니다. 현재 CLI 계정은 푸시 권한만 있어 소유자의 앱 설치 승인이 필요합니다. 기존 Vercel 프로젝트에 Git을 연결해야 하며 새 프로젝트를 만들지 않습니다. 앱 승인과 실제 CMS 저장·자동 배포 확인은 아직 완료하지 않았습니다.
+2026-10-31 Pages CMS GitHub 앱 승인 후, 실제 관리 화면에서 `dhyunking/teyvat@main`의 작업물 29개와 사진·설명·섹션 입력 폼을 확인했습니다. 관리 주소는 https://app.pagescms.org/dhyunking/teyvat/main/file/works 입니다.
+
+Vercel의 개인 GitHub 저장소 직접 연결은 저장소 소유자에게만 허용되므로, 협업자인 `Insajin` 계정으로는 앱 설치만으로 연결할 수 없습니다. 기존 Vercel 계정·프로젝트를 유지하기 위해 `.github/workflows/deploy.yml`에서 GitHub Actions로 배포합니다. `main` 저장 → 서버·콘텐츠 테스트 → Vercel 원격 빌드 → 기존 프로덕션 프로젝트 배포 순서입니다. 직접 Git 연결 없이 CLI로 배포하며 런타임 환경변수와 문의 연동은 기존 프로젝트에서 유지합니다. [Vercel 권한 조건](https://vercel.com/docs/git/vercel-for-github#personal-account-repositories), [GitHub Actions 배포 안내](https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel).
+
+GitHub Actions의 `VERCEL_TOKEN`에는 `teyvat` 프로젝트에만 제한한 별도 키를 등록했습니다. 기존 CLI 로그인 키는 전달하지 않습니다. 해당 키의 만료일은 2027-10-31이며 그 전에 Vercel에서 같은 프로젝트 범위로 재발급하고 저장소 Secret을 갱신해야 합니다. 저장소 관리자가 워크플로를 수정할 수 있으므로 이 저장소에 신뢰하는 편집자만 허용합니다. 실제 자동 배포 확인은 진행 중입니다.
 
 승인·연결 후 편집 방법:
 
@@ -15,7 +19,7 @@
 3. 새 번호(현재 다음 번호는 `30`), 브랜드명, 제작 품목·종류, 대표 이미지, 설명을 입력합니다. 영문·상단 이미지·상세 섹션은 선택입니다.
 4. 상세 섹션을 추가하면 품목별 제목과 사진, 사진 배치(전체 폭·2열·3열·가운데)를 선택할 수 있습니다.
 5. 작업물 항목을 끌어 순서를 바꿉니다. 앞의 7개가 메인 페이지에 표시됩니다. 기존 작업 번호는 유지합니다.
-6. 저장하면 GitHub에 기록됩니다. Vercel Git 연결이 완료된 상태에서는 자동 빌드 후 사이트에 반영됩니다. 배포 중에는 이전 사이트가 표시됩니다.
+6. 저장하면 GitHub에 기록되고 GitHub Actions가 자동 빌드·배포합니다. 배포 중에는 이전 사이트가 표시됩니다. [Actions](https://github.com/dhyunking/teyvat/actions)에서 성공·실패를 확인할 수 있습니다.
 
 기존 작업 번호를 바꾸거나 삭제하면 해당 상세 주소도 사라집니다. 브랜드명 변경도 주소의 영문 부분을 바꾸므로 외부에서 사용 중인 링크를 확인해야 합니다. 이미지는 `assets/works`에 올리며, 현재 사용 중인 이미지는 삭제하지 않습니다. 저장소는 공개이므로 비공개 고객 자료를 올리지 않습니다.
 
