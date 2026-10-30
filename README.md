@@ -8,7 +8,7 @@
 
 2026-10-31 Pages CMS GitHub 앱 승인 후, 실제 관리 화면에서 `dhyunking/teyvat@main`의 작업물 29개와 사진·설명·섹션 입력 폼을 확인했습니다. 관리 주소는 https://app.pagescms.org/dhyunking/teyvat/main/file/works 입니다.
 
-Vercel의 개인 GitHub 저장소 직접 연결은 저장소 소유자에게만 허용되므로, 협업자인 `Insajin` 계정으로는 앱 설치만으로 연결할 수 없습니다. 기존 Vercel 계정·프로젝트를 유지하기 위해 `.github/workflows/deploy.yml`에서 GitHub Actions로 배포합니다. `main` 저장 → 서버·콘텐츠 테스트 → Vercel 원격 빌드 → 기존 프로덕션 프로젝트 배포 순서입니다. 직접 Git 연결 없이 CLI로 배포하며 런타임 환경변수와 문의 연동은 기존 프로젝트에서 유지합니다. [Vercel 권한 조건](https://vercel.com/docs/git/vercel-for-github#personal-account-repositories), [GitHub Actions 배포 안내](https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel).
+Vercel의 개인 GitHub 저장소 직접 연결은 저장소 소유자에게만 허용되므로, 협업자인 `Insajin` 계정으로는 앱 설치만으로 연결할 수 없습니다. 기존 Vercel 계정·프로젝트를 유지하기 위해 `.github/workflows/deploy.yml`에서 GitHub Actions로 배포합니다. `main` 저장 → 서버·콘텐츠 테스트 → Vercel 원격 빌드 → 기존 프로덕션 프로젝트 배포 순서입니다. `scripts/deploy.mjs`가 공식 파일 업로드·배포 API를 호출하며 런타임 환경변수와 문의 연동은 기존 프로젝트에서 유지합니다. 프로젝트 전용 키로는 CLI의 사용자·팀 조회가 실패하는 [공급자 문제](https://github.com/vercel/vercel/issues/17506)가 있어 계정 전체 키로 권한을 넓히지 않고 프로젝트 API만 사용합니다. [Vercel 권한 조건](https://vercel.com/docs/git/vercel-for-github#personal-account-repositories), [배포 API](https://vercel.com/docs/rest-api/deployments/create-a-new-deployment).
 
 GitHub Actions의 `VERCEL_TOKEN`에는 `teyvat` 프로젝트에만 제한한 별도 키를 등록했습니다. 기존 CLI 로그인 키는 전달하지 않습니다. 해당 키의 만료일은 2027-10-31이며 그 전에 Vercel에서 같은 프로젝트 범위로 재발급하고 저장소 Secret을 갱신해야 합니다. 저장소 관리자가 워크플로를 수정할 수 있으므로 이 저장소에 신뢰하는 편집자만 허용합니다. 실제 자동 배포 확인은 진행 중입니다.
 

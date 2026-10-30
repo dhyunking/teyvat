@@ -42,14 +42,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
-      - name: Install Vercel CLI
-        run: npm install --global vercel@50.37.3
       - name: Deploy existing production project
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo '::error::Configure the teyvat project token in the VERCEL_TOKEN repository secret.'
-            exit 1
-          fi
-          vercel deploy --prod --yes --scope insajins-projects --token "$VERCEL_TOKEN"
+        run: node scripts/deploy.mjs
