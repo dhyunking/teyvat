@@ -10,7 +10,9 @@
 
 Vercel의 개인 GitHub 저장소 직접 연결은 저장소 소유자에게만 허용되므로, 협업자인 `Insajin` 계정으로는 앱 설치만으로 연결할 수 없습니다. 기존 Vercel 계정·프로젝트를 유지하기 위해 `.github/workflows/deploy.yml`에서 GitHub Actions로 배포합니다. `main` 저장 → 서버·콘텐츠 테스트 → Vercel 원격 빌드 → 기존 프로덕션 프로젝트 배포 순서입니다. `scripts/deploy.mjs`가 공식 파일 업로드·배포 API를 호출하며 런타임 환경변수와 문의 연동은 기존 프로젝트에서 유지합니다. 프로젝트 전용 키로는 CLI의 사용자·팀 조회가 실패하는 [공급자 문제](https://github.com/vercel/vercel/issues/17506)가 있어 계정 전체 키로 권한을 넓히지 않고 프로젝트 API만 사용합니다. [Vercel 권한 조건](https://vercel.com/docs/git/vercel-for-github#personal-account-repositories), [배포 API](https://vercel.com/docs/rest-api/deployments/create-a-new-deployment).
 
-GitHub Actions의 `VERCEL_TOKEN`에는 `teyvat` 프로젝트에만 제한한 별도 키를 등록했습니다. 기존 CLI 로그인 키는 전달하지 않습니다. 해당 키의 만료일은 2027-10-31이며 그 전에 Vercel에서 같은 프로젝트 범위로 재발급하고 저장소 Secret을 갱신해야 합니다. 저장소 관리자가 워크플로를 수정할 수 있으므로 이 저장소에 신뢰하는 편집자만 허용합니다. 실제 자동 배포 확인은 진행 중입니다.
+GitHub Actions의 `VERCEL_TOKEN`에는 `teyvat` 프로젝트에만 제한한 별도 키를 등록했습니다. 기존 CLI 로그인 키는 전달하지 않습니다. 해당 키의 만료일은 2027-10-31이며 그 전에 Vercel에서 같은 프로젝트 범위로 재발급하고 저장소 Secret을 갱신해야 합니다. 저장소 관리자가 워크플로를 수정할 수 있으므로 이 저장소에 신뢰하는 편집자만 허용합니다.
+
+실제 Pages CMS 저장으로 커밋 `84e5fe6`을 생성했고, [Actions 실행](https://github.com/dhyunking/teyvat/actions/runs/41144548763)의 테스트·배포 두 작업이 성공했습니다. 해당 커밋은 기존 Vercel 프로젝트의 배포 `dpl_7Y8XoMbwyr7zkyqsAckHy381orCz`로 공개됐습니다. 저장 검증에 사용한 설명 끝의 공백은 정리했으며, 표시되는 내용은 기존과 동일합니다. 배포 소스는 Git에 추적된 운영 파일만 허용하고 `.env.local`, `.vercel/`, 원본 업로드, 테스트와 CI 설정을 제외합니다. 런타임 비밀키를 CI로 내려받지 않고 기존 Vercel 환경변수를 그대로 사용합니다.
 
 승인·연결 후 편집 방법:
 
@@ -25,7 +27,7 @@ GitHub Actions의 `VERCEL_TOKEN`에는 `teyvat` 프로젝트에만 제한한 별
 
 번호 중복, 필수 내용 누락, 잘못된 제작 종류·사진 배치 또는 없는 이미지 경로는 빌드를 중단시켜 잘못된 사이트의 배포를 막습니다. 새 작업물의 상세 페이지, 메타데이터, sitemap, llms 자료는 같은 데이터로 자동 생성됩니다. API·문의 저장·메일·Slack 환경변수는 기존 Vercel 프로젝트에서 유지합니다.
 
-로컬 검증: 서버·콘텐츠 테스트 64개와 브라우저 테스트 6개 통과. 전환 전후 35개 HTML 파일(34개 경로와 404)의 내용은 번들 파일명을 제외하고 동일합니다.
+검증: 서버·콘텐츠·배포 테스트 67개가 로컬과 GitHub Actions에서 통과했습니다. 콘텐츠 전환 시 브라우저 테스트 6개도 통과했고, 전환 전후 35개 HTML 파일(34개 경로와 404)의 내용은 번들 파일명을 제외하고 동일했습니다. 실제 CMS 저장 이후에도 작업물 29개의 렌더링 데이터가 전환 전과 같은 것을 확인했습니다.
 
 ## 문의 접수
 
