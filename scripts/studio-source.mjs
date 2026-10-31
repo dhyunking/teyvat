@@ -10,7 +10,7 @@ export async function sourceSession({ token, request = fetch, wait = ms => new P
   let catalog, held = false, bootstrap = false;
   while (Date.now() < until) {
     const response = await call('source-begin', { owner });
-    if (response.status === 404) { bootstrap = true; break; } // Before the Studio API exists.
+    if (response.status === 404 && response.headers.get('x-teyvat-studio') !== '1') { bootstrap = true; break; } // Before the Studio API exists.
     if (response.status === 409) { await wait(8000); continue; }
     if (!response.ok) throw new Error(`Studio source synchronization failed (${response.status}).`);
     catalog = (await response.json()).catalog; held = true; break;

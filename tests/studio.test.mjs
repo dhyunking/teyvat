@@ -132,3 +132,13 @@ test('simultaneous retries of a publish request create at most one deployment', 
   assert.ok(results.some(r => r.status === 'fulfilled'));
   assert.equal(f.created.length, 1);
 });
+
+test('code updates wait for preparing publications and can recover an expired pre-publication lease', async () => {
+  const f = await serviceFixture(), owner = randomUUID();
+  await f.store.write('cms/lease.json', { owner, kind: 'publish', expires: timestamp + 60000 });
+  await assert.rejects(() => f.service.sourceBegin(randomUUID()), error => error.status === 409);
+  const entry = await f.store.read('cms/lease.json');
+  await f.store.write('cms/lease.json', { owner, kind: 'publish', expires: timestamp - 1 }, entry.etag);
+  const catalog = await f.service.sourceBegin(randomUUID());
+  assert.equal(catalog.revision, 'seed');
+});

@@ -11,6 +11,7 @@ test('first Studio deployment may bootstrap but authentication errors never fall
   await session.finish({ files: [], gitSha: 'abc', deploymentId: 'dpl_new' });
   assert.equal(calls[1].op, 'source-finish'); assert.equal(calls[1].body.owner, null);
   await assert.rejects(() => sourceSession({ token: 'bad-key', request: async () => new Response(null, { status: 401 }) }), /401/);
+  await assert.rejects(() => sourceSession({ token: 'project-key', request: async () => new Response(null, { status: 404, headers: { 'x-teyvat-studio': '1' } }) }), /404/);
 });
 
 test('code updates wait for a publication, keep its snapshot and release their source lease', async () => {

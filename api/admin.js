@@ -29,6 +29,7 @@ export function createAdminHandler({ env = process.env, store = createStudioStor
   const service = createStudioService({ store, provider, seed: initial, now });
   return async (req, res) => {
     res.setHeader('Cache-Control', 'no-store'); res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    res.setHeader('X-Teyvat-Studio', '1');
     const reply = (status, body) => { res.statusCode = status; res.setHeader('Content-Type', 'application/json; charset=utf-8'); res.end(JSON.stringify(body)); };
     try {
       const url = new URL(req.url || '/api/admin', 'https://teyvat.kr'), op = url.searchParams.get('op') || 'session';
