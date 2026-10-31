@@ -3,6 +3,8 @@ import { createHash } from 'node:crypto';
 import { readFile, lstat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { sourceSession } from './studio-source.mjs';
+import { mergeSource } from '../lib/studio-model.js';
 
 const DIRECTORIES = ['api/', 'lib/', 'src/', 'assets/', 'content/', 'scripts/'];
 const FILES = ['package.json', 'package-lock.json', 'vercel.json', 'llms.txt'];
@@ -10,7 +12,7 @@ const REQUIRED = [...FILES, 'scripts/build.mjs', 'content/works.json', 'src/data
 
 export async function deploymentFiles(cwd) {
   const tracked = execFileSync('git', ['ls-files', '-z'], { cwd }).toString().split('\0').filter(Boolean);
-  const paths = tracked.filter(path => FILES.includes(path) || DIRECTORIES.some(dir => path.startsWith(dir)));
+  const paths = tracked.filter(path => (FILES.includes(path) || DIRECTORIES.some(dir => path.startsWith(dir))) && !path.split('/').some(part => part.startsWith('.')));
   for (const file of REQUIRED) if (!paths.includes(file)) throw new Error(`Missing deployment source: ${file}`);
   return Promise.all(paths.map(async file => {
     const path = resolve(cwd, file);
@@ -23,7 +25,7 @@ export async function deploymentFiles(cwd) {
 // Use project-scoped REST operations: the CLI also looks up users/teams,
 // which project-scoped tokens cannot read (vercel/vercel#17506).
 export async function deploy({ token, teamId, projectId, cwd = process.cwd(), request = fetch,
-  log = console.log, wait = ms => new Promise(resolve => setTimeout(resolve, ms)) }) {
+  log = console.log, wait = ms => new Promise(resolve => setTimeout(resolve, ms)), studio = false }) {
   if (!token || !teamId || !projectId) throw new Error('VERCEL_TOKEN, VERCEL_ORG_ID and VERCEL_PROJECT_ID are required.');
   const api = async (path, options = {}) => {
     const response = await request(`https://api.vercel.com${path}?teamId=${encodeURIComponent(teamId)}`, {
@@ -33,6 +35,8 @@ export async function deploy({ token, teamId, projectId, cwd = process.cwd(), re
     if (!response.ok) throw new Error(`Vercel API ${options.method || 'GET'} ${path} failed (${response.status}).`);
     return response;
   };
+  const session = studio ? await sourceSession({ token, request, wait }) : null;
+  try {
   const files = await deploymentFiles(cwd);
   let next = 0;
   await Promise.all(Array.from({ length: Math.min(8, files.length) }, async () => {
@@ -53,8 +57,8 @@ export async function deploy({ token, teamId, projectId, cwd = process.cwd(), re
   log(`Uploaded ${files.length} source files.`);
   const created = await (await api('/v13/deployments', { method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name: 'teyvat', project: projectId, target: 'production',
-      files: files.map(({ file, sha, size }) => ({ file, sha, size })),
-      meta: { deploymentSource: 'github-actions', ...(process.env.GITHUB_SHA ? { githubCommitSha: process.env.GITHUB_SHA } : {}) },
+      files: mergeSource(files.map(({ file, sha, size }) => ({ file, sha, size })), session?.catalog),
+      meta: { deploymentSource: 'github-actions', cmsRevision: session?.catalog?.revision || 'seed', ...(process.env.GITHUB_SHA ? { githubCommitSha: process.env.GITHUB_SHA } : {}) },
     }),
   })).json();
   if (!created.id || !created.url) throw new Error('Vercel did not return a deployment ID and URL.');
@@ -66,15 +70,17 @@ export async function deploy({ token, teamId, projectId, cwd = process.cwd(), re
     if (state.readyState !== previous) { log(`Deployment status: ${state.readyState}`); previous = state.readyState; }
     if (state.readyState === 'READY') {
       if (state.aliasError) throw new Error('Deployment built but production domain assignment failed.');
+      if (session) await session.finish({ files: files.map(({ file, sha, size }) => ({ file, sha, size })), gitSha: process.env.GITHUB_SHA, deploymentId: created.id });
       return { id: created.id, url: created.url };
     }
     if (['ERROR', 'CANCELED'].includes(state.readyState)) throw new Error(`Vercel deployment ended in ${state.readyState}. See the Vercel build log.`);
     await wait(5000);
   }
   throw new Error('Deployment status timed out. Check Vercel before retrying.');
+  } finally { if (session) await session.abort(); }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  deploy({ token: process.env.VERCEL_TOKEN, teamId: process.env.VERCEL_ORG_ID, projectId: process.env.VERCEL_PROJECT_ID })
+  deploy({ token: process.env.VERCEL_TOKEN, teamId: process.env.VERCEL_ORG_ID, projectId: process.env.VERCEL_PROJECT_ID, studio: true })
     .catch(error => { console.error(error.message); process.exitCode = 1; });
 }

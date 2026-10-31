@@ -23,7 +23,14 @@ const NOTES = {
 };
 const W = (o) => o;
 const RAW = content.works;
-const WORKS = prepareWorks(content);
+let WORKS = prepareWorks(content);
+export function setPreviewWork(input, imageMap = src => src) {
+  const [work] = prepareWorks({ works: [input] });
+  work.cover = imageMap(work.cover); work.hero = imageMap(work.hero);
+  work.chapters.forEach(chapter => chapter.imgs.forEach(image => { image[0] = imageMap(image[0]); }));
+  WORKS = [work, ...WORKS.filter(other => other.id !== work.id)];
+  return work;
+}
 const FILTERS = ['all', 'bag', 'carton', 'rigid', 'magnetic', 'assembled', 'corrugated', 'print', 'etc'];
 const CLIENTS = ['Jade Palace Golf Club', 'PAN AM', 'Rare Medium Welldone', 'Owlr', 'Sir.LOIN', 'MARBLE NINE', 'minTree', 'SIOWA', 'Knotted', 'YARNNAKARN × STARBUCKS', 'MOKITO', 'Petit Palais', '모락관', 'KKOALAPIE', '선인장 가족 한의원', 'DANDANG', 'K—K Market Festival', 'Famille Mary', 'MilliLiter CentiLiter', 'et', '51오일', 'keatz', 'formule', 'MUWA', 'WHAT a CRISP', 'GELI BUDDY', 'BORED & HUNGRY', 'Organature', '일양약품', 'PHARVIS KOREA'];
 const LINES = [

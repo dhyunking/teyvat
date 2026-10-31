@@ -6,6 +6,7 @@ import handler from '../api/contact.js';
 import retryHandler from '../api/retry-notifications.js';
 import oauthHandler from '../api/naverworks-oauth.js';
 import mailSyncHandler from '../api/sync-mail.js';
+import adminHandler from '../api/admin.js';
 
 if (!process.argv.includes('--no-build')) await buildSite();
 const root = resolve('dist');
@@ -17,6 +18,7 @@ const server = createServer(async (req, res) => {
   if (req.url.split('?')[0] === '/api/retry-notifications') return retryHandler(req, res);
   if (req.url.split('?')[0] === '/api/naverworks-oauth') return oauthHandler(req, res);
   if (req.url.split('?')[0] === '/api/sync-mail') return mailSyncHandler(req, res);
+  if (req.url.split('?')[0] === '/api/admin') return adminHandler(req, res);
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     let file = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));

@@ -13,7 +13,7 @@ export default class Component extends DCLogic {
   fullRef = React.createRef(); metaRef = React.createRef(); capRef = React.createRef(); marqRef = React.createRef(); previewRef = React.createRef();
 
   componentDidMount() {
-    const init = this.parseHash();
+    const init = this.props.preview ? this.props.initialRoute : this.parseHash();
     if (location.hash.startsWith('#/')) history.replaceState(null, '', routeFor(init.page, init.workId));
     if (init.page !== 'home') this.setState({ page: init.page, ...(init.workId ? { workId: init.workId } : {}) });
     this.setTitle(init.page, init.workId);
@@ -42,6 +42,7 @@ export default class Component extends DCLogic {
     this.nav(page, extra);
   }
   nav(page, extra) {
+    if (this.props.preview) return;
     const el = this.transRef.current;
     if (!el || !this.motionOn() || !el.animate) return this.swap(page, extra);
     if (this.navBusy) return;

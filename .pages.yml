@@ -7,14 +7,15 @@ media:
 
 content:
   - name: works
-    label: 작업물 관리
+    label: 이전 작업물 보관본
     type: file
     path: content/works.json
     format: json
     fields:
       - name: works
         label: 작업물
-        description: 위에서부터 홈페이지에 표시됩니다. 항목을 끌어서 순서를 바꿀 수 있으며, 앞의 7개는 메인 페이지에도 표시됩니다.
+        description: 작업물 등록과 수정은 https://teyvat.kr/admin 의 전용 관리 화면을 사용해 주세요. 이 화면은 이전 데이터의 읽기 전용 보관본입니다.
+        readonly: true
         type: object
         list:
           min: 1

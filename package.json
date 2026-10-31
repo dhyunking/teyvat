@@ -6,6 +6,11 @@
   "engines": {
     "node": "24.x"
   },
+  "overrides": {
+    "@vercel/cli-config": {
+      "zod": "4.6.7"
+    }
+  },
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node --env-file-if-exists=.env.local scripts/dev.mjs",
@@ -15,6 +20,7 @@
   "dependencies": {
     "@vercel/blob": "^2.8.2",
     "@vercel/functions": "^3.10.1",
+    "lucide-react": "0.575.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

@@ -2,6 +2,7 @@ import { readFile, writeFile, mkdir, cp, rm, mkdtemp, stat } from 'node:fs/promi
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
 import { build } from 'esbuild';
 import { JSDOM } from 'jsdom';
 import { renderToString } from 'react-dom/server';
@@ -24,6 +25,13 @@ export async function buildSite() {
     entryNames: 'site-[hash]', bundle: true, minify: true, format: 'esm', target: 'es2022',
     loader: { '.html': 'text' }, metafile: true, define: { 'process.env.NODE_ENV': '"production"' } });
   const script = '/' + Object.keys(client.metafile.outputs).find(p => p.endsWith('.js')).replace(/^dist\//, '');
+  const studio = await build({ entryPoints: ['src/studio.jsx', 'src/studio-preview.js'], outdir: join(out, 'assets'),
+    entryNames: 'studio-[name]-[hash]', bundle: true, minify: true, format: 'esm', target: 'es2022',
+    loader: { '.html': 'text' }, metafile: true, define: { 'process.env.NODE_ENV': '"production"' } });
+  const studioEntry = name => '/' + Object.entries(studio.metafile.outputs).find(([, meta]) => meta.entryPoint === name)[0].replace(/^dist\//, '');
+  const studioCSS = await readFile('src/studio.css', 'utf8');
+  const studioStyle = `/assets/studio-${createHash('sha256').update(studioCSS).digest('hex').slice(0, 10)}.css`;
+  await writeFile(join(out, studioStyle), studioCSS);
   const temporary = await mkdtemp(join(tmpdir(), 'teyvat-build-'));
   try {
     const server = join(temporary, 'app.mjs');
@@ -77,12 +85,16 @@ ${verification}<style>${css}\n${pseudoCSS}</style>
     }
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(r => `  <url><loc>${origin}${r.path}</loc></url>`).join('\n')}\n</urlset>\n`;
     await writeFile(join(out, 'sitemap.xml'), sitemap);
-    await writeFile(join(out, 'robots.txt'), `User-agent: *\n${indexable ? 'Allow: /\nDisallow: /api/' : 'Disallow: /'}\n\nSitemap: ${origin}/sitemap.xml\n`);
+    await writeFile(join(out, 'robots.txt'), `User-agent: *\n${indexable ? 'Allow: /\nDisallow: /api/\nDisallow: /admin' : 'Disallow: /'}\n\nSitemap: ${origin}/sitemap.xml\n`);
     const overview = (await readFile('llms.txt', 'utf8')).replaceAll('https://teyvat.kr', origin);
     const links = `\n## 공식 페이지\n${routes.filter(r => r.page !== 'detail').map(r => `- [${metadata(r.page).title}](${origin}${r.path})`).join('\n')}\n\n## 작업 상세\n${WORKS.map(w => `- [${w.brand}](${origin}${routes.find(r => r.workId === w.id).path}): ${w.itemsKr}`).join('\n')}\n`;
     await writeFile(join(out, 'llms.txt'), overview + links);
     await writeFile(join(out, 'llms-full.txt'), overview + links + '\n## 자주 묻는 질문\n' + faq.mainEntity.map(q => `### ${q.name}\n${q.acceptedAnswer.text}`).join('\n\n'));
     await writeFile(join(out, '404.html'), `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>페이지를 찾을 수 없습니다 — TEYVAT</title><style>${css}</style></head><body><main style="padding:15vh 6vw"><h1>페이지를 찾을 수 없습니다.</h1><p><a href="/">TEYVAT 홈으로 돌아가기 →</a></p></main></body></html>`);
+    const adminHead = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="icon" href="/assets/teyvat-logo.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">`;
+    await writeFile(join(out, 'admin.html'), `<!doctype html><html lang="ko"><head>${adminHead}<title>TEYVAT Studio · 작업물 관리</title><link rel="stylesheet" href="${studioStyle}"><script type="module" src="${studioEntry('src/studio.jsx')}"></script></head><body><div id="studio-root"><p style="padding:40px">작업실을 여는 중입니다.</p></div><noscript>관리 화면을 이용하려면 JavaScript를 켜 주세요.</noscript></body></html>`);
+    await mkdir(join(out, 'admin'), { recursive: true });
+    await writeFile(join(out, 'admin/preview.html'), `<!doctype html><html lang="ko" data-site-url="${escape(origin)}"><head>${adminHead}<title>TEYVAT · 미리보기</title><meta name="description" content=""><meta property="og:title" content=""><meta property="og:description" content=""><meta property="og:url" content=""><link rel="canonical" href="${origin}/admin/preview"><script id="structured-data" type="application/ld+json">{}</script><style>${css}</style><script type="module" src="${studioEntry('src/studio-preview.js')}"></script></head><body><div id="dc-root"></div></body></html>`);
     console.log(`Built ${routes.length} static pages with SEO/GEO assets for ${origin}`);
   } finally {
     await rm(temporary, { recursive: true, force: true });
