@@ -151,7 +151,7 @@ vercel --prod
 
 ## SEO·GEO 및 확인 범위
 
-34개 경로를 정적 HTML로 생성합니다. JavaScript 없이도 본문·이동 링크·FAQ를 읽을 수 있고, 페이지별 title/description/canonical/OG/Twitter, Organization/WebSite/WebPage/Breadcrumb/FAQ 구조화 데이터와 robots/sitemap/llms 자료를 제공합니다. Preview는 noindex 처리합니다. 가비아 DNS와 HTTPS 연결은 2026-10-22에 확인했습니다. Google/Naver 소유권 확인과 사이트맵 제출은 아직 남아 있습니다.
+34개 경로를 정적 HTML로 생성합니다. JavaScript 없이도 본문·이동 링크·FAQ를 읽을 수 있고, 페이지별 title/description/canonical/OG/Twitter, Organization/WebSite/WebPage/Breadcrumb/FAQ 구조화 데이터와 robots/sitemap/llms 자료를 제공합니다. Preview는 noindex 처리합니다. 가비아 DNS와 HTTPS 연결은 2026-10-22에 확인했습니다. 네이버 서치어드바이저 소유권 확인과 사이트맵 제출은 2026-10-31에 완료했습니다. Google 소유권 확인과 사이트맵 제출은 별도 진행이 필요합니다.
 
 문의 저장, Drive 장애·응답 유실, 동시 요청, 선택적 확인메일, 실패 후 복구를 테스트합니다. 실제 비공개 Blob 저장·조회·조건부 갱신·익명 접근 차단 및 합성 문의의 동시 저장을 확인했습니다. 실제 네이버웍스 업로드 검증은 아래에 기록했습니다. Slack 및 고객 확인메일 수신은 아직 검증하지 않았습니다.
 
@@ -190,3 +190,13 @@ Slack CLI가 TEYVAT 워크스페이스에 로그인된 것을 확인했고, Help
 실제 검증 중 두 공급자 동작을 수정했습니다. Vercel Blob의 압축 GET이 반환하는 약한 ETag(W/)는 원본 버전의 강한 ETag로 정규화해 조건부 갱신하며, 별도 HEAD의 새 버전으로 읽은 내용을 덮어쓰지는 않습니다. 네이버웍스 검색 결과는 제목에 mark 강조 태그가 붙으므로 최근 받은메일함과 실제 원문을 사용해 발송 사본을 식별합니다. Cloudflare fetch는 error 리디렉션 모드를 지원하지 않아 manual과 상태 검증을 사용합니다.
 
 초기 설정용 문의 2개의 Drive 폴더와 Blob 기록 8개를 정리했고, 설정용 원문·보낸메일 2개는 휴지통으로 이동했습니다. 최종 확인용 홈페이지·직접 수신 테스트 2건은 원문·첨부 링크를 검토할 수 있도록 보관했습니다. 이와 별도로 들어온 접수 기록은 유지했습니다.
+
+## 네이버 서치어드바이저 등록 (2026-10-31)
+
+대표 주소 `https://teyvat.kr`의 소유권 확인을 완료했습니다. 확인 코드는 Vercel Production의 `NAVER_SITE_VERIFICATION` 환경변수로 유지하며, 빌드 시 공개 페이지의 정적 HTML `<head>`에 삽입합니다. 홈페이지 검색 설명은 58자로 조정했습니다. 배포 `dpl_Fb4CxComPi45ZWD16nWFJ1ufK5QY`에서 서버 테스트 79개가 통과했고, 공개 34개 경로의 HTTP 200·canonical·확인 태그·색인 허용 상태를 점검했습니다.
+
+네이버 콘솔에 `https://teyvat.kr/sitemap.xml`을 제출했고, 제출 목록의 등록 시각 `26.10.31 14:25:05`를 확인했습니다. 사이트맵에는 공개 34개 URL이 포함됩니다. 네이버가 수집한 robots.txt에도 동일한 사이트맵 주소가 있으며, 콘솔의 루트 URL 검증 결과는 “수집이 가능합니다”입니다. `/admin`과 `/api/`의 수집 제한은 유지합니다.
+
+홈(`/`), 작업물(`/works`), 서비스(`/services`), 회사 소개(`/about`), 문의(`/contact`)의 웹 페이지 수집 요청 5건이 네이버 콘솔 내역에 등록된 것을 확인했습니다. 수집·색인 완료와 검색 노출은 아직 확인되지 않았습니다. 처음 등록한 사이트의 리포트 생성에는 시간이 걸리며, 제출 자체가 검색 노출이나 순위를 보장하지 않습니다.
+
+Studio에서 작업물을 게시하면 정적 페이지와 사이트맵이 함께 다시 생성됩니다. 네이버 검색로봇은 [제출된 사이트맵을 주기적으로 재방문](https://searchadvisor.naver.com/guide/request-feed)하므로 같은 사이트맵을 작업물마다 다시 제출할 필요는 없습니다. 소유 확인 환경변수는 이후 배포에서도 유지해야 합니다.
