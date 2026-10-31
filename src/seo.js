@@ -2,7 +2,7 @@ import { WORKS } from './data.js';
 import originalSchema from './original-schema.json' with { type: 'json' };
 
 export const SITE_NAME = 'TEYVAT D&P 테바디엔피';
-export const DESCRIPTION = '테바디엔피(TEYVAT D&P)는 쇼핑백, 단상자, 싸바리·표지바리 박스, 골판지 박스, 틴케이스, 파우치까지 패키지 디자인과 인쇄, 제작을 한 곳에서 진행합니다.';
+export const DESCRIPTION = '테바디엔피(TEYVAT D&P)는 쇼핑백·박스 등 패키지 디자인부터 인쇄·제작까지 한 곳에서 진행합니다.';
 export const TITLES = {
   home: `${SITE_NAME} — 패키지 디자인 · 인쇄 · 제작`,
   works: `패키지 제작 포트폴리오 · Works — ${SITE_NAME}`,
